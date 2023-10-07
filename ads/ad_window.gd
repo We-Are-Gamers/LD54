@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@onready var bank: Banking = get_node("/root/Bank")
+
 var dragged = false
 var stiffness = 690
 var mouseForce = Vector2(0,0)
@@ -43,6 +45,7 @@ func _input(event):
 			dragged = false
 
 
-func set_ad_scale(ad_size):
+func set_ad_scale(ad_size: Vector2):
+	bank.deposit(100 * ad_size.x  * ad_size.y)
 	$AdCollider.scale = ad_size
 	

@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Banking
 
 @export var balance: int = 1000
 
@@ -14,7 +15,7 @@ func _process(delta):
 
 
 func update_balance_view():
-	$BoxContainer/RichTextLabel.text = '[center]{0}[/center]'.format([str(balance)])
+	$BoxContainer/RichTextLabel.text = str(balance)
 
 func get_balance() -> int:
 	return balance
