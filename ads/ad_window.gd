@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var bank: Banking = get_node("/root/Bank")
+@onready var bank = get_node("/root/Bank")
 
 var dragged = false
 var stiffness = 690

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://rpg/player.gd" id="1_hha6m"]
 [ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="2_bntfx"]
-[ext_resource type="PackedScene" uid="uid://bxh5538ht0b3j" path="res://rpg/action_menu.tscn" id="3_0sc33"]
+[ext_resource type="Script" path="res://rpg/menu_handler.gd" id="4_flcgv"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="4_t53bt"]
 
 [node name="Player" type="Node2D"]
@@ -18,9 +18,6 @@ scissor_power = 1
 position = Vector2(0, -3)
 texture = ExtResource("2_bntfx")
 
-[node name="ActionMenu" parent="." instance=ExtResource("3_0sc33")]
-position = Vector2(-148, 89)
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = -155.0
 offset_top = -187.0
@@ -30,4 +27,46 @@ offset_bottom = -112.0
 [node name="HealthBar" parent="VBoxContainer" instance=ExtResource("4_t53bt")]
 layout_mode = 2
 
+[node name="ActionMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -99.0
+offset_top = 138.0
+offset_right = -59.0
+offset_bottom = 178.0
+script = ExtResource("4_flcgv")
+
+[node name="Rock" type="Button" parent="ActionMenu"]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 43.0
+offset_bottom = 31.0
+text = "Rock"
+
+[node name="Paper" type="Button" parent="ActionMenu"]
+layout_mode = 0
+offset_left = 66.0
+offset_right = 120.0
+offset_bottom = 31.0
+text = "Paper"
+
+[node name="Scissors" type="Button" parent="ActionMenu"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 1.0
+offset_right = 211.0
+offset_bottom = 32.0
+text = "Scissors"
+
+[node name="Heal" type="Button" parent="ActionMenu"]
+layout_mode = 0
+offset_left = 245.0
+offset_right = 288.0
+offset_bottom = 31.0
+text = "Heal"
+
 [connection signal="button_action" from="ActionMenu" to="." method="_on_action_menu_button_action"]
+[connection signal="pressed" from="ActionMenu/Rock" to="ActionMenu" method="_on_rock_pressed"]
+[connection signal="pressed" from="ActionMenu/Paper" to="ActionMenu" method="_on_paper_pressed"]
+[connection signal="pressed" from="ActionMenu/Scissors" to="ActionMenu" method="_on_scissors_pressed"]
+[connection signal="pressed" from="ActionMenu/Heal" to="ActionMenu" method="_on_heal_pressed"]

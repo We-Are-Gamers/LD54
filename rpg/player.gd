@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Player
 
+@onready var bank = get_node("/root/Bank")
 @export var max_health: int
 @export var current_health: int
 @export var heal_amount: int
@@ -34,12 +35,17 @@ func _on_action_menu_button_action(type):
 		heal(heal_amount)
 		
 		
-		
 func attack(damage, type):
+	if !bank.withdraw(damage * 100):
+		return
+		
 	emit_signal("player_attack", damage, type)
 	
 	
 func heal(healing):
+	if !bank.withdraw(healing * 100):
+		return
+		
 	current_health += healing
 	$VBoxContainer/HealthBar.update_health(current_health)
 
