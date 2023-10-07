@@ -79,4 +79,8 @@ func get_cost(power) -> int:
 	return power * cost_multiplier
 
 func _on_balance_updated(balance):
-	print(balance)
+	for type in types:
+		var btn = type_button[type] as Button
+		btn.disabled = false
+		if get_cost(type_power[type]) > balance:
+			btn.disabled = true
