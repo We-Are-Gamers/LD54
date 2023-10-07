@@ -35,7 +35,7 @@ size_flags_vertical = 4
 [node name="EnemyIntent" parent="VBoxContainer" instance=ExtResource("2_1uh0b")]
 layout_mode = 2
 
-[node name="Health Bars" parent="VBoxContainer" instance=ExtResource("3_gghqu")]
+[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("3_gghqu")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -55,5 +55,5 @@ texture = ExtResource("2_xewpe")
 expand_mode = 1
 
 [connection signal="countdown" from="." to="VBoxContainer/EnemyIntent" method="_on_enemy_countdown"]
-[connection signal="update_health" from="." to="VBoxContainer/Health Bars" method="_on_update_health"]
+[connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health"]
 [connection signal="timeout" from="VBoxContainer/Timer" to="." method="_on_timer_timeout"]

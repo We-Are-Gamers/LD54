@@ -11,5 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_update_health(current_health):
+func update_health(current_health):
 	$ProgressBar.value = current_health

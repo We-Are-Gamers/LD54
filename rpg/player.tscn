@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddmaq0s288vp4"]
+[gd_scene load_steps=5 format=3 uid="uid://ddmaq0s288vp4"]
 
 [ext_resource type="Script" path="res://rpg/player.gd" id="1_hha6m"]
 [ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="2_bntfx"]
+[ext_resource type="PackedScene" uid="uid://bxh5538ht0b3j" path="res://rpg/action_menu.tscn" id="3_0sc33"]
+[ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="4_t53bt"]
 
 [node name="Player" type="Node2D"]
 position = Vector2(297, 224)
@@ -15,3 +17,17 @@ scissor_power = 1
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
 texture = ExtResource("2_bntfx")
+
+[node name="ActionMenu" parent="." instance=ExtResource("3_0sc33")]
+position = Vector2(-148, 89)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -155.0
+offset_top = -187.0
+offset_right = 150.0
+offset_bottom = -112.0
+
+[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("4_t53bt")]
+layout_mode = 2
+
+[connection signal="button_action" from="ActionMenu" to="." method="_on_action_menu_button_action"]

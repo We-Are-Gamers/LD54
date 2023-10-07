@@ -15,7 +15,7 @@ signal player_attack(damage, type)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_health = max_health
-	emit_signal("update_health", current_health)
+	$VBoxContainer/HealthBar.update_health(current_health)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,9 +41,9 @@ func attack(damage, type):
 	
 func heal(healing):
 	current_health += healing
-	emit_signal("update_health", current_health)
+	$VBoxContainer/HealthBar.update_health(current_health)
 
 
 func _on_enemy_attack(damage, type):
 	current_health -= damage
-	emit_signal("update_health", current_health)
+	$VBoxContainer/HealthBar.update_health(current_health)
