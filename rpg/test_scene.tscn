@@ -1,50 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdgqmxnvkmncq"]
+[gd_scene load_steps=5 format=3 uid="uid://bdgqmxnvkmncq"]
 
+[ext_resource type="Script" path="res://rpg/head_honcho.gd" id="1_ftnay"]
 [ext_resource type="PackedScene" uid="uid://bxh5538ht0b3j" path="res://rpg/action_menu.tscn" id="1_mby8h"]
 [ext_resource type="PackedScene" uid="uid://ddmaq0s288vp4" path="res://rpg/player.tscn" id="2_pw7o6"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_d6xf6"]
-[ext_resource type="PackedScene" uid="uid://dkp78lsiveu5m" path="res://rpg/enemy.tscn" id="4_qogqd"]
-[ext_resource type="PackedScene" uid="uid://det5fayhl777w" path="res://rpg/enemy_intent.tscn" id="5_4vcjw"]
 
 [node name="test_scene" type="Node2D"]
+script = ExtResource("1_ftnay")
 
 [node name="ActionMenu" parent="." instance=ExtResource("1_mby8h")]
-position = Vector2(85, 68)
+position = Vector2(699, 424)
 
 [node name="Player" parent="." instance=ExtResource("2_pw7o6")]
-position = Vector2(230, 421)
+position = Vector2(847, 335)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-offset_left = 83.0
-offset_top = 269.0
-offset_right = 388.0
-offset_bottom = 344.0
+offset_left = 692.0
+offset_top = 148.0
+offset_right = 997.0
+offset_bottom = 223.0
 
 [node name="Health Bar" parent="VBoxContainer2" instance=ExtResource("3_d6xf6")]
 layout_mode = 2
 
-[node name="Enemy" parent="." instance=ExtResource("4_qogqd")]
-position = Vector2(783, 316)
-max_health = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 701.0
-offset_top = 140.0
-offset_right = 1052.0
-offset_bottom = 463.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="EnemyIntent" parent="VBoxContainer" instance=ExtResource("5_4vcjw")]
-layout_mode = 2
-
-[node name="Health Bar2" parent="VBoxContainer" instance=ExtResource("3_d6xf6")]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [connection signal="button_action" from="ActionMenu" to="Player" method="_on_action_menu_button_action"]
-[connection signal="player_attack" from="Player" to="Enemy" method="_on_player_attack"]
 [connection signal="update_health" from="Player" to="VBoxContainer2/Health Bar" method="_on_update_health"]
-[connection signal="countdown" from="Enemy" to="VBoxContainer/EnemyIntent" method="_on_enemy_countdown"]
-[connection signal="enemy_attack" from="Enemy" to="Player" method="_on_enemy_attack"]
-[connection signal="update_health" from="Enemy" to="VBoxContainer/Health Bar2" method="_on_update_health"]

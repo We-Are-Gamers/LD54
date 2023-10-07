@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkp78lsiveu5m"]
+
+[ext_resource type="Script" path="res://rpg/Enemies/enemy.gd" id="1_mp8il"]
+[ext_resource type="PackedScene" uid="uid://dbg6pkkcpfxsn" path="res://rpg/enemy_intent.tscn" id="2_1uh0b"]
+[ext_resource type="Texture2D" uid="uid://ccvc6gs5lgowj" path="res://resources/evil_icon.png" id="2_xewpe"]
+[ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_gghqu"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_mp8il")
+max_health = 10
+heal_amount = 2
+rock_power = 1
+paper_power = 1
+scissor_power = 1
+type = "null"
+strongVsType = "null"
+weakVsType = "null"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 357.0
+offset_bottom = 325.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="EnemyIntent" parent="VBoxContainer" instance=ExtResource("2_1uh0b")]
+layout_mode = 2
+
+[node name="Health Bar2" parent="VBoxContainer" instance=ExtResource("3_gghqu")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EvilIcon" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(180, 264)
+scale = Vector2(0.0754395, 0.0739746)
+texture = ExtResource("2_xewpe")
+
+[node name="Timer" type="Timer" parent="VBoxContainer"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="countdown" from="." to="VBoxContainer/EnemyIntent" method="_on_enemy_countdown"]
+[connection signal="update_health" from="." to="VBoxContainer/Health Bar2" method="_on_update_health"]
+[connection signal="timeout" from="VBoxContainer/Timer" to="." method="_on_timer_timeout"]
