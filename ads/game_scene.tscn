@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxx0vlyg407th"]
+[gd_scene load_steps=10 format=3 uid="uid://bxx0vlyg407th"]
 
 [ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="1_c4kst"]
+[ext_resource type="Script" path="res://ads/game_scene.gd" id="1_o80gi"]
 [ext_resource type="PackedScene" uid="uid://bkhlycpg3lo6a" path="res://ads/ad_window.tscn" id="2_oo5p3"]
 [ext_resource type="PackedScene" uid="uid://bc4ksfds1f7f6" path="res://ads/ad_menu.tscn" id="3_djckg"]
+[ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="5_ejk4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jak"]
 size = Vector2(1164, 20)
@@ -17,6 +19,7 @@ size = Vector2(19.5, 665)
 size = Vector2(19.5, 665)
 
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_o80gi")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(410, 153)
@@ -62,4 +65,10 @@ shape = SubResource("RectangleShape2D_8ej7l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("3_djckg")]
+[node name="AdMenu" parent="CanvasLayer" instance=ExtResource("3_djckg")]
+
+[node name="ad_preview_box" parent="." instance=ExtResource("5_ejk4q")]
+visible = false
+check_collisions = true
+
+[connection signal="spawn_ad_preview" from="CanvasLayer/AdMenu" to="." method="_on_spawn_ad_preview"]

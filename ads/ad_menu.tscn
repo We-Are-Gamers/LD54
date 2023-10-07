@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
 [ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ads/ad_menu_button.tscn" id="3_tlw0m"]
 
-[node name="Control" type="Control"]
+[node name="AdMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,7 +98,9 @@ layout_mode = 2
 layout_mode = 2
 ad_size = Vector2(2, 1)
 
+[connection signal="button_down" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_mouse_exited"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_preview_ad"]
+[connection signal="button_down" from="MenuPanel/MarginContainer/VBoxContainer/AdButton2" to="." method="_on_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton2" to="." method="_on_button_mouse_exited"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton2" to="." method="_on_button_preview_ad"]
