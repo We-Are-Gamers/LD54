@@ -2,14 +2,18 @@
 
 [ext_resource type="Script" path="res://rpg/health_bar.gd" id="1_dbhfa"]
 
-[node name="Health Bar" type="Node2D"]
+[node name="Health Bar" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_dbhfa")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -107.0
-offset_top = -26.0
-offset_right = 102.0
-offset_bottom = 30.0
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
 max_value = 10.0
 step = 1.0
 value = 5.0
