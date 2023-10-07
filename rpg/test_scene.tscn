@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdgqmxnvkmncq"]
+[gd_scene load_steps=4 format=3 uid="uid://bdgqmxnvkmncq"]
 
 [ext_resource type="PackedScene" uid="uid://bxh5538ht0b3j" path="res://rpg/action_menu.tscn" id="1_mby8h"]
-[ext_resource type="PackedScene" uid="uid://ddmaq0s288vp4" path="res://player.tscn" id="2_pw7o6"]
+[ext_resource type="PackedScene" uid="uid://ddmaq0s288vp4" path="res://rpg/player.tscn" id="2_pw7o6"]
+[ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_d6xf6"]
 
 [node name="test_scene" type="Node2D"]
 
@@ -11,4 +12,8 @@ position = Vector2(85, 68)
 [node name="Player" parent="." instance=ExtResource("2_pw7o6")]
 position = Vector2(605, 137)
 
+[node name="Health Bar" parent="." instance=ExtResource("3_d6xf6")]
+position = Vector2(212, 262)
+
 [connection signal="button_action" from="ActionMenu" to="Player" method="_on_action_menu_button_action"]
+[connection signal="update_health" from="Player" to="Health Bar" method="_on_update_health"]

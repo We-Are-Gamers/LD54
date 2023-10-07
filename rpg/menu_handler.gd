@@ -14,7 +14,7 @@ func _process(delta):
 
 func _on_rock_pressed():
 	emit_signal("button_action", "rock")
-
+	
 
 func _on_paper_pressed():
 	emit_signal("button_action", "paper")
