@@ -41,3 +41,6 @@ func _on_input_event(viewport, event, shape_idx):
 	if event.pressed:
 		dragStart = to_local(event.position)
 		dragged = true
+
+func set_ad_scale(ad_size):
+	$AdCollider.scale = ad_size

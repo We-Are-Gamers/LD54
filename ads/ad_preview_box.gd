@@ -13,6 +13,7 @@ func get_overlapped_bodies():
 
 func set_ad_size(ad_size):
 	$Area2D/Sprite2D.scale = ad_size
+	$Area2D/CollisionShape2D.scale = ad_size
 	
 func _process(delta):
 	pass
