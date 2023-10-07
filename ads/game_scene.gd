@@ -9,7 +9,7 @@ var dragged_ad_size = Vector2(0, 0)
 func place_ad():
 	$ad_preview_box.visible = false
 	if $ad_preview_box.get_overlapped_bodies() > 0:
-		$CanvasLayer/AdMenu.visible = true
+		$CanvasLayer/AdMenu.toggle_menu(true, 0.1)
 	else:
 		var ad_window = AdWindow.instantiate()
 		add_child(ad_window)

@@ -12,8 +12,7 @@ func get_overlapped_bodies():
 	return overlapped_bodies
 
 func set_ad_size(ad_size):
-	$Area2D/Sprite2D.scale = ad_size
-	$Area2D/CollisionShape2D.scale = ad_size
+	$Area2D/AdCollider.scale = ad_size
 	
 func _process(delta):
 	pass
@@ -21,10 +20,10 @@ func _process(delta):
 func _on_body_entered(body):
 	if check_collisions:
 		overlapped_bodies += 1
-		$Area2D/Sprite2D.modulate = Color(1, .5, .5)
+		$Area2D/AdCollider.modulate = Color(1, .5, .5)
 	
 func _on_body_exited(body):
 	if check_collisions:
 		overlapped_bodies -= 1
 		if overlapped_bodies == 0:
-			$Area2D/Sprite2D.modulate = Color(.5, 1, .5)
+			$Area2D/AdCollider.modulate = Color(.5, 1, .5)
