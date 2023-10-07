@@ -32,7 +32,6 @@ func _input(event):
 		dragTo = event.position
 		return
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		print('release')
 		dragged = false
 
 
@@ -41,5 +40,4 @@ func _on_input_event(viewport, event, shape_idx):
 		return
 	if event.pressed:
 		dragStart = to_local(event.position)
-		print('press')
 		dragged = true
