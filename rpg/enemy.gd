@@ -8,7 +8,7 @@ extends Node2D
 @export var scissor_power: int
 
 signal update_health(current_health)
-signal player_attack(damage, type)
+signal enemy_attack(damage, type)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,27 +21,10 @@ func _process(delta):
 	pass
 
 
-func _on_action_menu_button_action(type):
-	if(type == "rock"):
-		attack(rock_power, type)
-	elif(type == "paper"):
-		attack(paper_power, type)
-	elif(type == "scissors"):
-		attack(scissor_power, type)
-	elif(type == "heal"):
-		heal(heal_amount)
-		
-		
-		
-func attack(damage, type):
-	emit_signal("player_attack", damage, type)
-	
-	
-func heal(healing):
-	current_health += healing
-	emit_signal("update_health", current_health)
+func _on_timer_timeout():
+	emit_signal("enemy_attack", 1, "rock")
 
 
-func _on_enemy_attack(damage, type):
+func _on_player_attack(damage, type):
 	current_health -= damage
 	emit_signal("update_health", current_health)
