@@ -10,7 +10,6 @@ var current_enemy
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rand_enemy()
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,7 +26,6 @@ func rand_enemy():
 	
 
 func _on_enemy_health_update(health):
-	print(health)
 	if health <= 0:
 		remove_child(current_enemy)
 		current_enemy.queue_free()
