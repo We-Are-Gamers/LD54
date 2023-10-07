@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bon4n6x2rayul"]
+
+[ext_resource type="Script" path="res://bank.gd" id="1_httop"]
+
+[sub_resource type="Theme" id="Theme_6hpcw"]
+default_font_size = 50
+
+[node name="Bank" type="Node2D"]
+script = ExtResource("1_httop")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -79.5
+offset_right = 102.5
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_6hpcw")
+bbcode_enabled = true
+text = "[center]1000[/center]"
+fit_content = true

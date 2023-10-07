@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxx0vlyg407th"]
+[gd_scene load_steps=10 format=3 uid="uid://bxx0vlyg407th"]
 
 [ext_resource type="Script" path="res://ads/game_scene.gd" id="1_o80gi"]
 [ext_resource type="PackedScene" uid="uid://bc4ksfds1f7f6" path="res://ads/ad_menu.tscn" id="3_djckg"]
+[ext_resource type="PackedScene" uid="uid://bon4n6x2rayul" path="res://bank.tscn" id="5_6xkjg"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="5_ejk4q"]
 [ext_resource type="PackedScene" uid="uid://bdgqmxnvkmncq" path="res://rpg/test_scene.tscn" id="6_umoe3"]
 
@@ -62,5 +63,9 @@ check_collisions = true
 
 [node name="test_scene" parent="." instance=ExtResource("6_umoe3")]
 z_index = -1
+
+[node name="Bank" parent="." instance=ExtResource("5_6xkjg")]
+position = Vector2(118, 59)
+balance = 1001
 
 [connection signal="spawn_ad_preview" from="CanvasLayer/AdMenu" to="." method="_on_spawn_ad_preview"]
