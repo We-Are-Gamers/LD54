@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=5 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
 [ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ads/ad_menu_button.tscn" id="3_tlw0m"]
+[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="4_83n56"]
 
 [node name="AdMenu" type="Control"]
 layout_mode = 3
@@ -75,7 +76,7 @@ color = Color(0.411765, 0, 0.411765, 1)
 [node name="MarginContainer" type="MarginContainer" parent="MenuPanel"]
 layout_mode = 0
 offset_right = 99.0
-offset_bottom = 116.0
+offset_bottom = 151.0
 mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -98,9 +99,26 @@ layout_mode = 2
 layout_mode = 2
 ad_size = Vector2(2, 1)
 
+[node name="AdButton3" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+ad_size = Vector2(1.5, 3)
+
+[node name="MenuButton" type="TextureButton" parent="MenuPanel"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 118.0
+offset_bottom = 138.0
+scale = Vector2(0.4, 1)
+texture_normal = ExtResource("4_83n56")
+
 [connection signal="button_down" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_mouse_exited"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_preview_ad"]
 [connection signal="button_down" from="MenuPanel/MarginContainer/VBoxContainer/AdButton2" to="." method="_on_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton2" to="." method="_on_button_mouse_exited"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton2" to="." method="_on_button_preview_ad"]
+[connection signal="button_down" from="MenuPanel/MarginContainer/VBoxContainer/AdButton3" to="." method="_on_button_pressed"]
+[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton3" to="." method="_on_button_mouse_exited"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton3" to="." method="_on_button_preview_ad"]
+[connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]

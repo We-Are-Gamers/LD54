@@ -10,13 +10,11 @@ func place_ad():
 	$ad_preview_box.visible = false
 	if $ad_preview_box.get_overlapped_bodies() > 0:
 		$CanvasLayer/AdMenu.visible = true
-		print("you absolute fool")
 	else:
 		var ad_window = AdWindow.instantiate()
 		add_child(ad_window)
 		ad_window.position = $ad_preview_box.position
 		ad_window.set_ad_scale(dragged_ad_size)
-		print("you win this round")
 
 func _on_spawn_ad_preview(ad_size, ad_position):
 	dragging = true
@@ -24,7 +22,6 @@ func _on_spawn_ad_preview(ad_size, ad_position):
 	$ad_preview_box.set_ad_size(ad_size)
 	$ad_preview_box.position = ad_position
 	$ad_preview_box.visible = true
-	$CanvasLayer/AdMenu.visible = false
 
 func _process(delta):
 	pass
