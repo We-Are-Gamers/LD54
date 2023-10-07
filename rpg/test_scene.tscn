@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdgqmxnvkmncq"]
+[gd_scene load_steps=6 format=3 uid="uid://bdgqmxnvkmncq"]
 
 [ext_resource type="Script" path="res://rpg/head_honcho.gd" id="1_ftnay"]
 [ext_resource type="PackedScene" uid="uid://bxh5538ht0b3j" path="res://rpg/action_menu.tscn" id="1_mby8h"]
 [ext_resource type="PackedScene" uid="uid://ddmaq0s288vp4" path="res://rpg/player.tscn" id="2_pw7o6"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_d6xf6"]
+[ext_resource type="PackedScene" uid="uid://c6xi4eav84661" path="res://rpg/map.tscn" id="5_g3je1"]
 
 [node name="test_scene" type="Node2D"]
 script = ExtResource("1_ftnay")
@@ -25,6 +26,12 @@ layout_mode = 2
 
 [node name="EnemySpawnLocation" type="Node2D" parent="."]
 position = Vector2(429, 477)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Map" parent="CanvasLayer" instance=ExtResource("5_g3je1")]
+unique_name_in_owner = true
 
 [connection signal="button_action" from="ActionMenu" to="Player" method="_on_action_menu_button_action"]
 [connection signal="update_health" from="Player" to="VBoxContainer2/Health Bar" method="_on_update_health"]

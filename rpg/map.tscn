@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6xi4eav84661"]
+
+[ext_resource type="Script" path="res://rpg/map.gd" id="1_gaemt"]
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gaemt")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.513726, 0.219608, 0.188235, 0.741176)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -500.0
+offset_right = 300.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "button 1"
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "button 2
+"
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "button 3"

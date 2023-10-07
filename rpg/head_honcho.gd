@@ -9,6 +9,7 @@ var current_enemy: Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%Map.visible = false
 	rand_enemy()
 
 
@@ -30,4 +31,4 @@ func _on_enemy_health_update(health):
 	if health <= 0:
 		remove_child(current_enemy)
 		current_enemy.queue_free()
-		rand_enemy()
+		%Map.visible = true
