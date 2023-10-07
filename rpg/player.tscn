@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddmaq0s288vp4"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_1p0hc"]
-[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="2_i8td5"]
+[ext_resource type="Script" path="res://rpg/player.gd" id="1_hha6m"]
+[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="2_bntfx"]
 
 [node name="Player" type="Node2D"]
 position = Vector2(297, 224)
-script = ExtResource("1_1p0hc")
+script = ExtResource("1_hha6m")
 max_health = 10
 heal_amount = 2
 rock_power = 1
@@ -14,4 +14,4 @@ scissor_power = 1
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
-texture = ExtResource("2_i8td5")
+texture = ExtResource("2_bntfx")
