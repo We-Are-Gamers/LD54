@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdgqmxnvkmncq"]
+
+[ext_resource type="PackedScene" uid="uid://bxh5538ht0b3j" path="res://action_menu.tscn" id="1_mby8h"]
+[ext_resource type="PackedScene" uid="uid://ddmaq0s288vp4" path="res://player.tscn" id="2_pw7o6"]
+
+[node name="test_scene" type="Node2D"]
+
+[node name="ActionMenu" parent="." instance=ExtResource("1_mby8h")]
+position = Vector2(187, 119)
+
+[node name="Player" parent="." instance=ExtResource("2_pw7o6")]
+position = Vector2(589, 152)
+
+[connection signal="button_action" from="ActionMenu" to="Player" method="_on_action_menu_button_action"]
