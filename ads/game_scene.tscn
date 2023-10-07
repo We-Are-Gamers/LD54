@@ -1,37 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxx0vlyg407th"]
+[gd_scene load_steps=9 format=3 uid="uid://bxx0vlyg407th"]
 
-[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="1_c4kst"]
 [ext_resource type="Script" path="res://ads/game_scene.gd" id="1_o80gi"]
-[ext_resource type="PackedScene" uid="uid://bkhlycpg3lo6a" path="res://ads/ad_window.tscn" id="2_oo5p3"]
 [ext_resource type="PackedScene" uid="uid://bc4ksfds1f7f6" path="res://ads/ad_menu.tscn" id="3_djckg"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="5_ejk4q"]
 [ext_resource type="PackedScene" uid="uid://bdgqmxnvkmncq" path="res://rpg/test_scene.tscn" id="6_umoe3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jak"]
-size = Vector2(1164, 20)
+size = Vector2(1931, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74acg"]
-size = Vector2(1164, 20)
+size = Vector2(1928, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nf61k"]
-size = Vector2(19.5, 665)
+size = Vector2(19.5, 1090)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ej7l"]
-size = Vector2(19.5, 665)
+size = Vector2(19.5, 1094.5)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_o80gi")
-
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(410, 153)
-texture = ExtResource("1_c4kst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(572, 0)
+position = Vector2(955.5, 0)
 shape = SubResource("RectangleShape2D_u1jak")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -39,7 +33,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(577, 648)
+position = Vector2(959, 1080)
 shape = SubResource("RectangleShape2D_74acg")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
@@ -47,7 +41,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-4.25, 327.5)
+position = Vector2(-4.25, 540)
 shape = SubResource("RectangleShape2D_nf61k")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -55,7 +49,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(1151, 325)
+position = Vector2(1920, 542)
 shape = SubResource("RectangleShape2D_8ej7l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -65,12 +59,6 @@ shape = SubResource("RectangleShape2D_8ej7l")
 [node name="ad_preview_box" parent="." instance=ExtResource("5_ejk4q")]
 visible = false
 check_collisions = true
-
-[node name="AdWindow3" parent="." instance=ExtResource("2_oo5p3")]
-position = Vector2(775, 501)
-
-[node name="AdWindow2" parent="." instance=ExtResource("2_oo5p3")]
-position = Vector2(485, 357)
 
 [node name="test_scene" parent="." instance=ExtResource("6_umoe3")]
 z_index = -1

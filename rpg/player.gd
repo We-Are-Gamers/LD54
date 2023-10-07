@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Player
+
 @export var max_health: int
 @export var current_health: int
 @export var heal_amount: int

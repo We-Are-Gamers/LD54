@@ -7,6 +7,4 @@
 type = "scissors"
 strongVsType = "paper"
 weakVsType = "rock"
-
-[node name="EvilIcon" parent="VBoxContainer" index="2"]
-texture = ExtResource("2_7drup")
+enemy_icon = ExtResource("2_7drup")

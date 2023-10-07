@@ -9,19 +9,22 @@
 script = ExtResource("1_ftnay")
 
 [node name="ActionMenu" parent="." instance=ExtResource("1_mby8h")]
-position = Vector2(699, 424)
+position = Vector2(1501, 581)
 
 [node name="Player" parent="." instance=ExtResource("2_pw7o6")]
-position = Vector2(847, 335)
+position = Vector2(1649, 492)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-offset_left = 692.0
-offset_top = 148.0
-offset_right = 997.0
-offset_bottom = 223.0
+offset_left = 1494.0
+offset_top = 305.0
+offset_right = 1799.0
+offset_bottom = 380.0
 
 [node name="Health Bar" parent="VBoxContainer2" instance=ExtResource("3_d6xf6")]
 layout_mode = 2
+
+[node name="EnemySpawnLocation" type="Node2D" parent="."]
+position = Vector2(429, 477)
 
 [connection signal="button_action" from="ActionMenu" to="Player" method="_on_action_menu_button_action"]
 [connection signal="update_health" from="Player" to="VBoxContainer2/Health Bar" method="_on_update_health"]
