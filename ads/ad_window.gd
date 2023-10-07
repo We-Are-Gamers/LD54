@@ -28,19 +28,22 @@ func _process(delta):
 
 
 func _input(event):
-	if(event is InputEventMouseMotion):
+	
+	
+	if event is InputEventMouseMotion:
 		dragTo = event.position
-		return
+		if ($AdCollider.shape.get_rect().has_point(to_local(event.position))):
+			get_viewport().set_input_as_handled()
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		dragged = false
+		if (event.pressed 
+				&& $AdCollider.shape.get_rect().has_point(to_local(event.position))):
+			dragged = true
+			dragStart = to_local(event.position)
+			dragTo = event.position
+			get_viewport().set_input_as_handled()
+		else:
+			dragged = false
 
-
-func _on_input_event(viewport, event, shape_idx):
-	if dragged || !(event is InputEventMouseButton) || event.button_index != MOUSE_BUTTON_LEFT:
-		return
-	if event.pressed:
-		dragStart = to_local(event.position)
-		dragged = true
 
 func set_ad_scale(ad_size):
 	$AdCollider.scale = ad_size

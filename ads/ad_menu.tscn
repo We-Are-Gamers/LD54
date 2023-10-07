@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_qew6a")
 
 [node name="Preview" type="Control" parent="."]
@@ -23,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Preview"]
 layout_mode = 1
@@ -31,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0.513726, 0.513726, 0.454902)
 
 [node name="BoxContainer" type="BoxContainer" parent="Preview"]
@@ -46,6 +48,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ad_preview_box" parent="Preview/BoxContainer" instance=ExtResource("2_yq0ia")]
 unique_name_in_owner = true

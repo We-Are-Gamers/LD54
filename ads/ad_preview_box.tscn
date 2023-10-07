@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmgjiunetoneg"]
 
 [ext_resource type="Script" path="res://ads/ad_preview_box.gd" id="1_65fqm"]
-[ext_resource type="PackedScene" uid="uid://c7vb4ak46c5rk" path="res://ads/ad_border.tscn" id="2_h52sb"]
+[ext_resource type="PackedScene" uid="uid://cc7nntvqvbfet" path="res://ads/ad_border.tscn" id="2_h52sb"]
 
 [node name="ad_preview_box" type="Node2D"]
 z_index = 1
