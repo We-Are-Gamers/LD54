@@ -17,6 +17,7 @@ signal player_attack(damage, type)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_health = max_health
+	bank.balance_updated.connect(_on_balance_updated)
 	$VBoxContainer/HealthBar.update_health(current_health)
 	update_button("rock", rock_power)
 	update_button("paper", paper_power)
@@ -73,3 +74,6 @@ func update_button(type, power):
 		
 func get_cost(power) -> int:
 	return power * cost_multiplier
+
+func _on_balance_updated(balance):
+	print(balance)
