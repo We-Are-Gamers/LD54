@@ -12,7 +12,7 @@ func place_ad():
 		$CanvasLayer/AdMenu.close_menu(true)
 	else:
 		var ad_window = AdWindow.instantiate()
-		add_child(ad_window)
+		$CanvasLayer.add_child(ad_window)
 		ad_window.position = $ad_preview_box.position
 		ad_window.set_ad_scale(dragged_ad_size)
 
