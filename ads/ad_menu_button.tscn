@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1nv736gkesjq"]
 
-[ext_resource type="Script" path="res://ad_menu_button.gd" id="1_vwbcr"]
+[ext_resource type="Script" path="res://ads/ad_menu_button.gd" id="1_1xqwa"]
 
 [node name="AdButton" type="Button"]
 anchors_preset = 15
@@ -9,6 +9,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "ad btn"
-script = ExtResource("1_vwbcr")
+script = ExtResource("1_1xqwa")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

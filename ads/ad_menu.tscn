@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc4ksfds1f7f6"]
 
-[ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ad_preview_box.tscn" id="1_gkvn2"]
-[ext_resource type="Script" path="res://ad_menu.gd" id="1_kgksj"]
-[ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ad_menu_button.tscn" id="3_v38b5"]
+[ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
+[ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
+[ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ads/ad_menu_button.tscn" id="3_tlw0m"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_kgksj")
+script = ExtResource("1_qew6a")
 
 [node name="Preview" type="Control" parent="."]
 visible = false
@@ -46,7 +46,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ad_preview_box" parent="Preview/BoxContainer" instance=ExtResource("1_gkvn2")]
+[node name="ad_preview_box" parent="Preview/BoxContainer" instance=ExtResource("2_yq0ia")]
 unique_name_in_owner = true
 
 [node name="MenuPanel" type="Control" parent="."]
@@ -91,10 +91,10 @@ layout_mode = 2
 mouse_filter = 1
 text = "Add an Ad"
 
-[node name="AdButton" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_v38b5")]
+[node name="AdButton" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 
-[node name="AdButton2" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_v38b5")]
+[node name="AdButton2" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 ad_size = Vector2(2, 1)
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxx0vlyg407th"]
+[gd_scene load_steps=8 format=3 uid="uid://bxx0vlyg407th"]
 
-[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="1_vcdwo"]
-[ext_resource type="PackedScene" uid="uid://bfg8bbu3s1kq6" path="res://ad_window.tscn" id="2_q7wh3"]
+[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="1_c4kst"]
+[ext_resource type="PackedScene" uid="uid://bkhlycpg3lo6a" path="res://ads/ad_window.tscn" id="2_oo5p3"]
+[ext_resource type="PackedScene" uid="uid://bc4ksfds1f7f6" path="res://ads/ad_menu.tscn" id="3_djckg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jak"]
 size = Vector2(1164, 20)
@@ -19,13 +20,13 @@ size = Vector2(19.5, 665)
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(410, 153)
-texture = ExtResource("1_vcdwo")
+texture = ExtResource("1_c4kst")
 
-[node name="AdWindow2" parent="." instance=ExtResource("2_q7wh3")]
-position = Vector2(659, 139)
+[node name="AdWindow2" parent="." instance=ExtResource("2_oo5p3")]
+position = Vector2(485, 357)
 
-[node name="AdWindow3" parent="." instance=ExtResource("2_q7wh3")]
-position = Vector2(1069, 292)
+[node name="AdWindow3" parent="." instance=ExtResource("2_oo5p3")]
+position = Vector2(237, 333)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -58,3 +59,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2(1151, 325)
 shape = SubResource("RectangleShape2D_8ej7l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_djckg")]
