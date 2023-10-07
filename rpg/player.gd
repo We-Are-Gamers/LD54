@@ -9,6 +9,7 @@ class_name Player
 @export var rock_power: int
 @export var paper_power: int
 @export var scissor_power: int
+@export var cost_multiplier: int = 100
 
 signal update_health(current_health)
 signal player_attack(damage, type)
@@ -17,6 +18,10 @@ signal player_attack(damage, type)
 func _ready():
 	current_health = max_health
 	$VBoxContainer/HealthBar.update_health(current_health)
+	update_button("rock", rock_power)
+	update_button("paper", paper_power)
+	update_button("scissors", scissor_power)
+	update_button("heal", heal_amount)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,3 +58,18 @@ func heal(healing):
 func _on_enemy_attack(damage, type):
 	current_health -= damage
 	$VBoxContainer/HealthBar.update_health(current_health)
+	
+
+func update_button(type, power):
+	var real_cost = [get_cost(power)]
+	if(type == "rock"):
+		$ActionMenu/Rock.text = "ROCK\n${0}".format(real_cost)
+	elif(type == "paper"):
+		$ActionMenu/Paper.text = "PAPER\n${0}".format(real_cost)
+	elif(type == "scissors"):
+		$ActionMenu/Scissors.text = "SCISSORS\n${0}".format(real_cost)
+	elif(type == "heal"):
+		$ActionMenu/Heal.text = "HEAL\n${0}".format(real_cost)
+		
+func get_cost(power) -> int:
+	return power * cost_multiplier
