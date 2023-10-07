@@ -11,6 +11,13 @@ class_name Player
 @export var scissor_power: int
 @export var cost_multiplier: int = 100
 
+
+var types = {"rock": "rock", "paper": "paper", "scissors": "scissors", "heal": "heal"}
+
+var type_power = {}
+
+var type_button = {}
+
 signal update_health(current_health)
 signal player_attack(damage, type)
 
@@ -19,10 +26,17 @@ func _ready():
 	current_health = max_health
 	bank.balance_updated.connect(_on_balance_updated)
 	$VBoxContainer/HealthBar.update_health(current_health)
-	update_button("rock", rock_power)
-	update_button("paper", paper_power)
-	update_button("scissors", scissor_power)
-	update_button("heal", heal_amount)
+	type_power = {types.rock: rock_power,
+			types.paper: paper_power,
+			types.scissors: scissor_power,
+			types.heal: heal_amount}
+	type_button[types.rock] = $ActionMenu/Rock
+	type_button[types.paper] = $ActionMenu/Paper
+	type_button[types.scissors] = $ActionMenu/Scissors
+	type_button[types.heal] = $ActionMenu/Heal
+	for type in types:
+		print(type_power[type])
+		update_button(type, type_power[type])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,14 +45,10 @@ func _process(delta):
 
 
 func _on_action_menu_button_action(type):
-	if(type == "rock"):
-		attack(rock_power, type)
-	elif(type == "paper"):
-		attack(paper_power, type)
-	elif(type == "scissors"):
-		attack(scissor_power, type)
-	elif(type == "heal"):
-		heal(heal_amount)
+	if(type == types.heal):
+		heal(type_power[type])
+	else:
+		attack(type_power[type], type)
 		
 		
 func attack(damage, type):
@@ -61,16 +71,9 @@ func _on_enemy_attack(damage, type):
 	$VBoxContainer/HealthBar.update_health(current_health)
 	
 
-func update_button(type, power):
-	var real_cost = [get_cost(power)]
-	if(type == "rock"):
-		$ActionMenu/Rock.text = "ROCK\n${0}".format(real_cost)
-	elif(type == "paper"):
-		$ActionMenu/Paper.text = "PAPER\n${0}".format(real_cost)
-	elif(type == "scissors"):
-		$ActionMenu/Scissors.text = "SCISSORS\n${0}".format(real_cost)
-	elif(type == "heal"):
-		$ActionMenu/Heal.text = "HEAL\n${0}".format(real_cost)
+func update_button(type: String, power):
+	var real_cost = get_cost(power)
+	type_button[type].text = "{0}\n${1}".format([type.to_upper(), real_cost])
 		
 func get_cost(power) -> int:
 	return power * cost_multiplier

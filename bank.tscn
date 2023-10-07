@@ -8,7 +8,6 @@ default_font_size = 50
 [node name="Bank" type="Node2D"]
 position = Vector2(260, 37.915)
 script = ExtResource("1_httop")
-balance = 0
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 anchors_preset = 8
