@@ -64,7 +64,6 @@ shape = SubResource("RectangleShape2D_8ej7l")
 
 [node name="ad_preview_box" parent="." instance=ExtResource("5_ejk4q")]
 visible = false
-z_index = -1
 check_collisions = true
 
 [node name="AdWindow3" parent="." instance=ExtResource("2_oo5p3")]
