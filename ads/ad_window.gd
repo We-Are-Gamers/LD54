@@ -7,6 +7,7 @@ var dragStart = Vector2(0,0)
 var dragTo = Vector2(0,0)
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -22,21 +23,18 @@ func drag_window():
 	var distance = dragTo - to_global(dragStart)
 	mouseForce = distance.normalized() * stiffness * distance.length()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+func overlaps(point):
+	var rect =  $AdCollider.shape.get_rect()
+	var r = Rect2(rect.position * $AdCollider.scale, rect.size * $AdCollider.scale)
+	return r.has_point(to_local(point))
 
 func _input(event):
-	
-	
 	if event is InputEventMouseMotion:
 		dragTo = event.position
-		if ($AdCollider.shape.get_rect().has_point(to_local(event.position))):
+		if (overlaps(event.position)):
 			get_viewport().set_input_as_handled()
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		if (event.pressed 
-				&& $AdCollider.shape.get_rect().has_point(to_local(event.position))):
+		if (event.pressed && overlaps(event.position)):
 			dragged = true
 			dragStart = to_local(event.position)
 			dragTo = event.position
@@ -47,3 +45,4 @@ func _input(event):
 
 func set_ad_scale(ad_size):
 	$AdCollider.scale = ad_size
+	
