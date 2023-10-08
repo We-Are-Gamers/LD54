@@ -30,16 +30,10 @@ func overlaps(point):
 func _input(event):
 	if event is InputEventMouseMotion:
 		dragTo = event.position
-		if (overlaps(event.position)):
-			get_viewport().set_input_as_handled()
-	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		if (event.pressed && overlaps(event.position)):
-			dragged = true
-			dragStart = to_local(event.position)
-			dragTo = event.position
-			get_viewport().set_input_as_handled()
-		else:
-			dragged = false
+	if (event is InputEventMouseButton 
+			&& event.button_index == MOUSE_BUTTON_LEFT
+			&& !event.pressed):
+		dragged = false
 
 
 func set_ad(ad: AdDescription):
@@ -49,4 +43,12 @@ func set_ad(ad: AdDescription):
 	else:
 		bank.add_income_per_tick(ad.income_amount)
 	$AdCollider.set_ad(ad)
-	
+	$AdCollider/TextureButton.texture_normal = ad.ad_texture
+
+
+func _on_texture_button_button_down():
+	print('asd')
+	var pos = get_viewport().get_mouse_position()
+	dragStart = to_local(get_viewport().get_mouse_position())
+	dragged = true
+	dragTo = pos
