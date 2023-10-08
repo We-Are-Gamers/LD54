@@ -54,6 +54,8 @@ shape = SubResource("RectangleShape2D_8ej7l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="AdWindowContainer" type="Node" parent="CanvasLayer"]
+
 [node name="ad_preview_box" parent="CanvasLayer" instance=ExtResource("5_ejk4q")]
 unique_name_in_owner = true
 visible = false
