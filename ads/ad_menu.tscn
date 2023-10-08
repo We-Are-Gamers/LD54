@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=7 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
 [ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ads/ad_menu_button.tscn" id="3_tlw0m"]
 [ext_resource type="Texture2D" uid="uid://dryut30kju02e" path="res://resources/sqaure.png" id="4_7uwo2"]
 [ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="4_83n56"]
+[ext_resource type="Texture2D" uid="uid://oq4i8ihvofau" path="res://resources/100 Ads/graphic_design.png" id="4_onase"]
 
 [node name="AdMenu" type="Control"]
 layout_mode = 3
@@ -99,7 +100,7 @@ text = "Add an Ad"
 [node name="AdButton" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 income_amount = 100
-ad_texture = ExtResource("4_7uwo2")
+ad_texture = ExtResource("4_onase")
 
 [node name="AdButton2" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
