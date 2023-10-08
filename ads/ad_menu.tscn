@@ -97,14 +97,17 @@ text = "Add an Ad"
 
 [node name="AdButton" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
+income_amount = 100
 
 [node name="AdButton2" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 ad_size = Vector2(2, 1)
+income_amount = 200
 
 [node name="AdButton3" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 ad_size = Vector2(1.5, 3)
+income_amount = 450
 
 [node name="MenuButton" type="TextureButton" parent="MenuPanel"]
 layout_mode = 0

@@ -7,6 +7,7 @@ var stiffness = 690
 var mouseForce = Vector2(0,0)
 var dragStart = Vector2(0,0)
 var dragTo = Vector2(0,0)
+var ad: AdDescription
 
 
 
@@ -45,7 +46,7 @@ func _input(event):
 			dragged = false
 
 
-func set_ad_scale(ad_size: Vector2):
-	bank.deposit(100 * ad_size.x  * ad_size.y)
-	$AdCollider.scale = ad_size
+func set_ad(ad: AdDescription):
+	bank.deposit(ad.income_amount)
+	$AdCollider.scale = ad.ad_size
 	

@@ -4,11 +4,11 @@ extends Control
 @export var fast_menu_duration = 0.1
 
 var open = true
-var recent_ad_size
+var recent_ad: AdDescription
 
 var xpos = {}
 
-signal spawn_ad_preview(ad_size, ad_position)
+signal spawn_ad_preview(ad, ad_position)
 
 func _ready():
 	xpos[true] = $MenuPanel.position.x
@@ -42,15 +42,15 @@ func hide_preview():
 func _physics_process(delta):
 	pass
 	
-func _on_button_preview_ad(ad_size):
-	show_preview(ad_size)
-	recent_ad_size = ad_size
+func _on_button_preview_ad(ad: AdDescription):
+	show_preview(ad.ad_size)
+	recent_ad = ad
 
 func _on_button_mouse_exited():
 	hide_preview()
 
 func _on_button_pressed():
-	spawn_ad_preview.emit(recent_ad_size, get_viewport().get_mouse_position())
+	spawn_ad_preview.emit(recent_ad, get_viewport().get_mouse_position())
 	close_menu(true)
 	hide_preview()
 

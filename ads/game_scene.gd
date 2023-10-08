@@ -4,7 +4,7 @@ var AdWindow = preload("res://ads/ad_window.tscn")
 
 var dragging = false
 var preview_drag_to = Vector2(0, 0)
-var dragged_ad_size = Vector2(0, 0)
+var dragged_ad: AdDescription
 
 func place_ad():
 	$ad_preview_box.visible = false
@@ -14,12 +14,12 @@ func place_ad():
 		var ad_window = AdWindow.instantiate()
 		$CanvasLayer.add_child(ad_window)
 		ad_window.position = $ad_preview_box.position
-		ad_window.set_ad_scale(dragged_ad_size)
+		ad_window.set_ad(dragged_ad)
 
-func _on_spawn_ad_preview(ad_size, ad_position):
+func _on_spawn_ad_preview(ad: AdDescription, ad_position):
 	dragging = true
-	dragged_ad_size = ad_size
-	$ad_preview_box.set_ad_size(ad_size)
+	dragged_ad = ad
+	$ad_preview_box.set_ad_size(ad.ad_size)
 	$ad_preview_box.position = ad_position
 	$ad_preview_box.visible = true
 
