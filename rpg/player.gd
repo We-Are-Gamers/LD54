@@ -9,6 +9,7 @@ class_name Player
 @export var rock_power: int
 @export var paper_power: int
 @export var scissor_power: int
+@export var power_growth: int = 1
 @export var cost_multiplier: int = 100
 
 
@@ -84,3 +85,8 @@ func _on_balance_updated(balance):
 		btn.disabled = false
 		if get_cost(type_power[type]) > balance:
 			btn.disabled = true
+
+func _on_level_up(type: String):
+	type_power[type] = type_power[type] + power_growth
+	print(type_power[type])
+	update_button(type, type_power[type])
