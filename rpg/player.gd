@@ -36,7 +36,6 @@ func _ready():
 	type_button[types.scissors] = $ActionMenu/Scissors
 	type_button[types.heal] = $ActionMenu/Heal
 	for type in types:
-		print(type_power[type])
 		update_button(type, type_power[type])
 
 

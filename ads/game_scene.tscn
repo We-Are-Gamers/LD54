@@ -54,11 +54,12 @@ shape = SubResource("RectangleShape2D_8ej7l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="AdMenu" parent="CanvasLayer" instance=ExtResource("3_djckg")]
-
-[node name="ad_preview_box" parent="." instance=ExtResource("5_ejk4q")]
+[node name="ad_preview_box" parent="CanvasLayer" instance=ExtResource("5_ejk4q")]
+unique_name_in_owner = true
 visible = false
 check_collisions = true
+
+[node name="AdMenu" parent="CanvasLayer" instance=ExtResource("3_djckg")]
 
 [node name="test_scene" parent="." instance=ExtResource("6_umoe3")]
 z_index = -1
