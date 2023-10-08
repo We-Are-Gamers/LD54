@@ -5,7 +5,7 @@ var RockIcon = preload("res://resources/map_assets/coal.png")
 var PaperIcon = preload("res://resources/map_assets/paper.png")
 var ScissorsIcon = preload("res://resources/map_assets/scissors.png")
 
-@export var max_level: int = 10
+@export var max_level: int = 3
 
 var current_level: int = 0
 
