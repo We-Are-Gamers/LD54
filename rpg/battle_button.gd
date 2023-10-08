@@ -18,7 +18,7 @@ var my_material = enabled_material
 
 
 @export var battle_type: BattleType
-signal begin_battle(type: BattleType)
+signal begin_battle(from: BattleButton)
 
 func _ready():
 	if battle_type == BattleType.ROCK:
@@ -47,7 +47,7 @@ func build_image_texture(icon):
 
 
 func _on_pressed():
-	emit_signal("begin_battle", battle_type)
+	emit_signal("begin_battle", self)
 
 func _on_mouse_entered():
 	if not disabled:

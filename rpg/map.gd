@@ -6,29 +6,35 @@ var PackedBattleButton = preload("res://rpg/battle_button.tscn")
 @export var max_room_width: int = 3
 
 var current_level: int = 0
-
+var map = []
+var path_taken = []
 
 signal begin_battle(battle_type: BattleButton.BattleType)
 signal game_over(win: bool)
 
+
+func _get_valid_next_paths(level):
+	if(level == 0):
+		return map[0].map(func(node): return node.button)
+	var last_button = path_taken[-1]
+	var last_node = map[level - 1]\
+			.filter(func(node): return node.button == last_button)[0]
+	return last_node.connections
+	
+	
+
 func _update_active_buttons():
-	for row_num in range(max_level):
-		var rooms = %VBoxContainer.get_children()[row_num].get_children().filter(func(e): return e.is_class("TextureButton"))
-		for room in range(rooms.size()):
-			var battle_button = rooms[room]
-			# The top row is row_num 0, but should be level_num n-1
-			var row_level = max_level - row_num -1
-			if row_level < current_level:
-				battle_button.do_disable()
-				# fade the icon or something
-			elif row_level > current_level:
-				battle_button.do_disable()
-			elif row_level == current_level:
+	var allowed_paths  = _get_valid_next_paths(current_level)
+	for level in range(max_level):
+		for node in map[level]:
+			var battle_button = node.button
+			if allowed_paths.any(func(c): return c == battle_button):
 				battle_button.do_enable()
+			else:
+				battle_button.do_disable()
 
 
 func _ready():
-	var map = []
 	for i in range(max_level):
 		map.push_back([])
 	for i in range(max_level, 0, -1):
@@ -118,5 +124,6 @@ func increment_level():
 	_update_active_buttons()
 
 
-func _on_button_pressed(battle_type: BattleButton.BattleType):
-	emit_signal("begin_battle", battle_type)
+func _on_button_pressed(from_button: BattleButton):
+	path_taken.push_back(from_button)
+	emit_signal("begin_battle", from_button.battle_type)
