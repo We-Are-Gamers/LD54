@@ -6,15 +6,15 @@ class_name Enemy
 @export var current_health: int
 @export var attack_power: int = 1
 @export var level: int = 0
-@export var type: String
-@export var strongVsType: String
-@export var weakVsType: String
+@export var type: ActionType.ActionTypeEnum
+@export var strongVsType: ActionType.ActionTypeEnum
+@export var weakVsType: ActionType.ActionTypeEnum
 @export var ticks_per_attack: int = 5 * 4 # Five seconds, timer is 1/4 second
 @export var enemy_icon: Texture
 
 signal update_health(current_health)
-signal countdown(remaining, type)
-signal enemy_attack(damage, type)
+signal countdown(remaining, type: ActionType.ActionTypeEnum)
+signal enemy_attack(damage, type: ActionType.ActionTypeEnum)
 
 var ticks_remaining: int = ticks_per_attack
 
@@ -31,7 +31,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func _update_intent(attack_type):
+func _update_intent(attack_type: ActionType.ActionTypeEnum):
 	emit_signal("countdown", float(ticks_remaining)/ticks_per_attack, attack_type)
 
 func _on_timer_timeout():
@@ -41,13 +41,13 @@ func _on_timer_timeout():
 		emit_signal("enemy_attack", attack_power, type)
 		ticks_remaining = ticks_per_attack
 
-func _on_player_attack(damage, type):
+func _on_player_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage * get_type_multiplier(type)
-	var emitter: GPUParticles2D = {"rock": $Particles/Rock, "paper": $Particles/Paper, "scissors": $Particles/Scissors}[type]
+	var emitter: GPUParticles2D = {ActionType.ROCK: $Particles/Rock, ActionType.PAPER: $Particles/Paper, ActionType.SCISSORS: $Particles/Scissors}[type]
 	emitter.restart()
 	emit_signal("update_health", current_health)
 
-func get_type_multiplier(type):
+func get_type_multiplier(type: ActionType.ActionTypeEnum):
 	if type == strongVsType:
 		return .5
 	elif type == weakVsType:
