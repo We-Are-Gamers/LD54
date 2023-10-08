@@ -62,21 +62,47 @@ func connect_node(from_node, to_node):
 	from_node.connections.push_back(to_node.button)
 
 
-func create_node_paths(node, required_next, all_next, last = false):
-	var connections = (randi() % all_next.size()) + 1
-	connections = required_next.size() if last && !required_next.is_empty() else connections
-	for i in range(connections):
-		var next_node = _random_element(required_next) if !required_next.is_empty() else _random_element(all_next, false)
-		connect_node(node, next_node)
+func create_node_paths(node, previous_connected, unconnencted: Array, last):
+	var connected = null
+	if previous_connected == null:
+		connected = unconnencted.pop_front()
+		connect_node(node, connected)
+	elif unconnencted.is_empty() || randi()%100 > 50:
+		connected = previous_connected
+		connect_node(node, connected)
+
+	if connected == null:
+		connected = unconnencted.pop_front()
+		connect_node(node, connected)
+
+	if unconnencted.is_empty():
+		return connected
+
+	var chance_of_connecting = 100;
+	var chance_decrease = 1 if last else .5
+
+
+	for i in range(unconnencted.size()):
+		chance_of_connecting *= chance_decrease
+
+		var roll = randi() % 100
+
+		if roll > chance_of_connecting:
+			return connected
+
+		connected = unconnencted.pop_front()
+		connect_node(node, connected)
+
+	return connected
 
 
 func create_row_paths(current_row, next_row):
-	var current_nodes = current_row.duplicate()
-	var required_next = next_row.duplicate()
-	while !current_nodes.is_empty():
-		var node = _random_element(current_nodes)
-		var is_last = current_nodes.is_empty()
-		create_node_paths(node, required_next, next_row, is_last)
+	var unconnected = next_row.duplicate()
+	var last_connected = null
+	for node_index in range(current_row.size()):
+		var node = current_row[node_index]
+		last_connected = create_node_paths(node, last_connected, unconnected, node_index + 1 == current_row.size())
+		
 
 
 func create_paths(map):
