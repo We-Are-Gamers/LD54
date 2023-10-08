@@ -12,8 +12,8 @@ func _draw_selection(button):
 	draw_arc(pos, half_size.length(),0, 12, 100, Color.BLACK, 1, true)
 
 
-func _draw_path(from, to):
-	draw_line(from, to, Color.SLATE_GRAY, 5.0)
+func _draw_path(from, to, color):
+	draw_line(from, to, color, 5.0)
 
 
 func _get_button_pos(node):
@@ -24,9 +24,13 @@ func _get_button_pos(node):
 
 func _draw_node_connections(node):
 	var node_pos = _get_button_pos(node.button)
+	var path_index = path_taken.find(node.button)
 	for connection in node.connections:
+		var color = Color.SLATE_GRAY
+		if(path_index > -1 && path_index + 1 < path_taken.size() && path_taken[path_index + 1] == connection):
+			color = Color.BLUE
 		var next_pos = _get_button_pos(connection)
-		_draw_path(node_pos, next_pos)
+		_draw_path(node_pos, next_pos, color)
 
 
 func _draw_row_connections(row):

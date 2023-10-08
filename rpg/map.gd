@@ -108,7 +108,7 @@ func create_row_paths(current_row, next_row):
 	for node_index in range(current_row.size()):
 		var node = current_row[node_index]
 		last_connected = create_node_paths(node, last_connected, unconnected, node_index + 1 == current_row.size())
-		
+
 
 
 func create_paths(map):
