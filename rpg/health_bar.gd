@@ -13,3 +13,4 @@ func _process(delta):
 
 func update_health(current_health):
 	$ProgressBar.value = current_health
+	$ProgressBar/Label.text = "%d/%d" % [int(current_health),int($ProgressBar.max_value)]
