@@ -42,7 +42,7 @@ func _ready():
 		
 		h_box.alignment = BoxContainer.ALIGNMENT_CENTER
 	_update_active_buttons()
-	$ScrollContainer.set_deferred("scroll_vertical", %VBoxContainer.size.y)
+	$ScrollContainer.set_deferred("scroll_vertical", 10000000)
 
 func increment_level():
 	current_level += 1
