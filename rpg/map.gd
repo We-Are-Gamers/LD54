@@ -126,4 +126,6 @@ func increment_level():
 
 func _on_button_pressed(from_button: BattleButton):
 	path_taken.push_back(from_button)
+	%VBoxContainer.path_taken = path_taken
+	%VBoxContainer.call_deferred("queue_redraw")
 	emit_signal("begin_battle", from_button.battle_type)
