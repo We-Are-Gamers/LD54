@@ -1,10 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dymws2klqxv8d"]
 
 [ext_resource type="PackedScene" uid="uid://dkp78lsiveu5m" path="res://rpg/Enemies/enemy.tscn" id="1_1aun2"]
-[ext_resource type="Texture2D" uid="uid://c5rt4g062da7b" path="res://resources/evil_rock.png" id="2_r07qa"]
+[ext_resource type="Texture2D" uid="uid://b3mqihaga807e" path="res://resources/enemies/rock_enemy.png" id="3_kt5li"]
 
 [node name="Rock Enemy" instance=ExtResource("1_1aun2")]
 type = "rock"
 strongVsType = "scissors"
 weakVsType = "paper"
-enemy_icon = ExtResource("2_r07qa")
+enemy_icon = ExtResource("3_kt5li")
+
+[node name="EnemyIcon" parent="VBoxContainer/BoxContainer" index="0"]
+texture = ExtResource("3_kt5li")
+
+[connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health" flags=18]
