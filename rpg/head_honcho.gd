@@ -9,8 +9,7 @@ var current_enemy: Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%Map.visible = false
-	rand_enemy()
+	%Map.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,8 +17,8 @@ func _process(delta):
 	pass
 
 
-func rand_enemy():
-	current_enemy = enemies[randi() % 3].instantiate()
+func spawn_enemy(enemy_type):
+	current_enemy = enemies[enemy_type].instantiate()
 	current_enemy.enemy_attack.connect(player._on_enemy_attack)
 	current_enemy.update_health.connect(_on_enemy_health_update)
 	player.player_attack.connect(current_enemy._on_player_attack)
@@ -32,3 +31,9 @@ func _on_enemy_health_update(health):
 		remove_child(current_enemy)
 		current_enemy.queue_free()
 		%Map.visible = true
+
+
+func _on_map_begin_battle(battle_type):
+	%Map.visible = false
+	spawn_enemy(battle_type)
+	
