@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bbqrfab65tufv"]
+
+[ext_resource type="Shader" path="res://rpg/battle_button_disabled.gdshader" id="1_8ma2a"]
+
+[resource]
+shader = ExtResource("1_8ma2a")

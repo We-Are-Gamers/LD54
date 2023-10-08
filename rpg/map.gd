@@ -17,12 +17,12 @@ func _update_active_buttons():
 			# The top row is row_num 0, but should be level_num n-1
 			var row_level = max_level - row_num -1
 			if row_level < current_level:
-				battle_button.disabled = true
+				battle_button.do_disable()
 				# fade the icon or something
 			elif row_level > current_level:
-				battle_button.disabled = true
+				battle_button.do_disable()
 			elif row_level == current_level:
-				battle_button.disabled = false
+				battle_button.do_enable()
 
 
 func _ready():

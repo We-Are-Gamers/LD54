@@ -5,6 +5,8 @@ class_name BattleButton
 var RockIcon = preload("res://resources/map_assets/coal.png")
 var PaperIcon = preload("res://resources/map_assets/paper.png")
 var ScissorsIcon = preload("res://resources/map_assets/scissors.png")
+var disabled_material = preload("res://rpg/battle_button_disabled.tres")
+var enabled_material = preload("res://rpg/battle_button_enabled.tres")
 enum BattleType {ROCK, PAPER, SCISSORS}
 
 var rock_texture = build_image_texture(RockIcon)
@@ -22,13 +24,14 @@ func _ready():
 		texture_normal = paper_texture
 	elif battle_type == BattleType.SCISSORS:
 		texture_normal = scissors_texture
+
+func do_disable():
+	disabled = true
+	material = disabled_material
 	
-func _process(delta):
-	if disabled:
-		modulate = Color(0.1, 0.1, 0.1)
-	else:
-		modulate = Color(1.0, 1.0, 1.0)
-	
+func do_enable():
+	disabled = false
+	material = enabled_material
 
 func build_image_texture(icon):
 	var image = icon.get_image()
