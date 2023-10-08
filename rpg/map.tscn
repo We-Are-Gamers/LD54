@@ -55,19 +55,3 @@ size_flags_vertical = 6
 theme_override_constants/separation = 150
 alignment = 1
 script = ExtResource("2_p4ecu")
-
-[node name="Button" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "button 1"
-
-[node name="Button2" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "button 2
-"
-
-[node name="Button3" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "button 3"

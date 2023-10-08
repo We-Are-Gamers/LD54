@@ -31,6 +31,7 @@ func _on_enemy_health_update(health):
 		remove_child(current_enemy)
 		current_enemy.queue_free()
 		%Map.visible = true
+		%Map.increment_level()
 
 
 func _on_map_begin_battle(battle_type):

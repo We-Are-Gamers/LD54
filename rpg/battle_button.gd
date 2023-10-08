@@ -23,6 +23,12 @@ func _ready():
 	elif battle_type == BattleType.SCISSORS:
 		texture_normal = scissors_texture
 	
+func _process(delta):
+	if disabled:
+		modulate = Color(0.1, 0.1, 0.1)
+	else:
+		modulate = Color(1.0, 1.0, 1.0)
+	
 
 func build_image_texture(icon):
 	var image = icon.get_image()
