@@ -40,6 +40,20 @@ func _ready():
 		update_button(type, type_power[type])
 
 
+func _lookup_sound_effect(type: String) -> AudioStreamPlayer:
+	if type == types.rock:
+		return $Audio/RockSound
+	elif type == types.paper:
+		return $Audio/PaperSound
+	elif type == types.scissors:
+		return $Audio/ScissorsSound
+	return null
+
+func _play_sound_effect(type: String):
+	var effect = _lookup_sound_effect(type)
+	effect.play()
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -55,7 +69,7 @@ func _on_action_menu_button_action(type):
 func attack(damage, type):
 	if !bank.withdraw(damage * 100):
 		return
-		
+	_play_sound_effect(type)
 	emit_signal("player_attack", damage, type)
 	
 	
@@ -91,3 +105,4 @@ func _on_balance_updated(balance):
 func _on_level_up(type: String):
 	type_power[type] = type_power[type] + power_growth
 	update_button(type, type_power[type])
+	
