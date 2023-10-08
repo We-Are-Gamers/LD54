@@ -47,7 +47,6 @@ func set_ad(ad: AdDescription):
 
 
 func _on_texture_button_button_down():
-	print('asd')
 	var pos = get_viewport().get_mouse_position()
 	dragStart = to_local(get_viewport().get_mouse_position())
 	dragged = true

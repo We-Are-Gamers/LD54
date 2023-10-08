@@ -19,7 +19,7 @@ func  start_income_tick():
 	$IncomeTimer.start()
 	
 func  stop_income_tick():
-	$IncomeTimer.start()
+	$IncomeTimer.stop()
 
 
 func add_income_per_tick(amount):

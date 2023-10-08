@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m3qby1va0oyd"
-path="res://.godot/imported/truckin thursday.png-403c4c04c4e36d7e93a7eb671281b872.ctex"
+uid="uid://oq4i8ihvofau"
+path="res://.godot/imported/graphic_design.png-52801323183784a8ea072697f792294f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/100 Ads/truckin thursday.png"
-dest_files=["res://.godot/imported/truckin thursday.png-403c4c04c4e36d7e93a7eb671281b872.ctex"]
+source_file="res://resources/ads/graphic_design.png"
+dest_files=["res://.godot/imported/graphic_design.png-52801323183784a8ea072697f792294f.ctex"]
 
 [params]
 
