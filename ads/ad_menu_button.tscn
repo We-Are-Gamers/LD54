@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1nv736gkesjq"]
+[gd_scene load_steps=4 format=3 uid="uid://d1nv736gkesjq"]
 
 [ext_resource type="Script" path="res://ads/ad_menu_button.gd" id="1_1xqwa"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfwyi"]
+bg_color = Color(1, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ompd"]
-bg_color = Color(0, 0, 0, 0.117647)
+bg_color = Color(1, 1, 1, 1)
 
 [node name="AdButtonContainer" type="VBoxContainer"]
 anchors_preset = 15
@@ -17,10 +20,12 @@ script = ExtResource("1_1xqwa")
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_vfwyi")
 text = "ad btn"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ompd")
 text = "   description"
 autowrap_mode = 3

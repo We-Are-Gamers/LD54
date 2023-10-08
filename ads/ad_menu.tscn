@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
 [ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ads/ad_menu_button.tscn" id="3_tlw0m"]
-[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="4_83n56"]
 [ext_resource type="Texture2D" uid="uid://oq4i8ihvofau" path="res://resources/100 Ads/graphic_design.png" id="4_onase"]
 [ext_resource type="Texture2D" uid="uid://d3o0lnnu38nrq" path="res://resources/100 Ads/mogus.png" id="5_q3upx"]
 [ext_resource type="Texture2D" uid="uid://m3qby1va0oyd" path="res://resources/100 Ads/truckin thursday.png" id="6_idejw"]
 [ext_resource type="Texture2D" uid="uid://dc05ufhpm4onl" path="res://resources/buy-now.png" id="7_m847v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul2t"]
+bg_color = Color(0.996078, 0.945098, 0.862745, 1)
 
 [node name="AdMenu" type="Control"]
 layout_mode = 3
@@ -70,6 +72,28 @@ offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="MenuButton" type="Button" parent="MenuPanel"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 138.0
+offset_right = 75.0
+offset_bottom = 178.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_yul2t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yul2t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yul2t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yul2t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yul2t")
+text = "Ads"
+
 [node name="ColorRect" type="ColorRect" parent="MenuPanel"]
 layout_mode = 1
 anchors_preset = 15
@@ -78,7 +102,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0.411765, 0, 0.411765, 1)
+color = Color(0.996078, 0.945098, 0.862745, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuPanel"]
 layout_mode = 0
@@ -98,6 +122,7 @@ theme_override_constants/separation = 13
 [node name="Label" type="Label" parent="MenuPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Add an Ad"
 
 [node name="AdButton" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
@@ -121,15 +146,7 @@ layout_mode = 2
 income_amount = 300
 ad_texture = ExtResource("7_m847v")
 
-[node name="MenuButton" type="TextureButton" parent="MenuPanel"]
-layout_mode = 0
-offset_left = -50.0
-offset_top = 10.0
-offset_right = 118.0
-offset_bottom = 138.0
-scale = Vector2(0.4, 1)
-texture_normal = ExtResource("4_83n56")
-
+[connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_preview_ad"]
@@ -142,4 +159,3 @@ texture_normal = ExtResource("4_83n56")
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton4" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/AdButton4" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton4" to="." method="_on_button_preview_ad"]
-[connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
