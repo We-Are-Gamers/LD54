@@ -42,5 +42,5 @@ func _input(event):
 
 func set_ad(ad: AdDescription):
 	bank.deposit(ad.income_amount)
-	$AdCollider.scale = ad.ad_size
+	$AdCollider.set_ad(ad)
 	

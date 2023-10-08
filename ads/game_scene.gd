@@ -19,7 +19,7 @@ func place_ad():
 func _on_spawn_ad_preview(ad: AdDescription, ad_position):
 	dragging = true
 	dragged_ad = ad
-	$ad_preview_box.set_ad_size(ad.ad_size)
+	$ad_preview_box.set_ad(ad)
 	$ad_preview_box.position = ad_position
 	$ad_preview_box.visible = true
 

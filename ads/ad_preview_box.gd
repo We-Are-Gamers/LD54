@@ -11,8 +11,8 @@ func _ready():
 func get_overlapped_bodies():
 	return overlapped_bodies
 
-func set_ad_size(ad_size):
-	$Area2D/AdCollider.scale = ad_size
+func set_ad(ad):
+	$Area2D/AdCollider.set_ad(ad)
 	
 func _process(delta):
 	pass

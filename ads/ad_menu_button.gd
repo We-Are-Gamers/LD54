@@ -1,10 +1,15 @@
 class_name AdDescription extends Button
 
-@export var ad_size = Vector2(1, 1)
+var ad_size = Vector2.ZERO : get = _get_ad_size
 
 @export var income_amount: int
 
 @export var income_per_tick: bool
+
+@export var ad_texture: Texture2D
+	
+func _get_ad_size():
+	return ad_texture.get_size()
 
 signal preview_ad(ad: AdDescription)
 

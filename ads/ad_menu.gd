@@ -32,8 +32,8 @@ func toggle_menu(open_fast = false):
 	tween.tween_property($MenuPanel, "position:x", xpos[open], duration)
 	tween.play()
 
-func show_preview(ad_size):
-	%ad_preview_box.set_ad_size(ad_size)
+func show_preview(ad):
+	%ad_preview_box.set_ad(ad)
 	$Preview.visible = true
 	
 func hide_preview():
@@ -43,7 +43,7 @@ func _physics_process(delta):
 	pass
 	
 func _on_button_preview_ad(ad: AdDescription):
-	show_preview(ad.ad_size)
+	show_preview(ad)
 	recent_ad = ad
 
 func _on_button_mouse_exited():
