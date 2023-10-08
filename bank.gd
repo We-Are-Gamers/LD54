@@ -7,7 +7,7 @@ class_name Banking
 signal balance_updated(balance)
 
 var income_per_tick = 0
-
+var win: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +44,12 @@ func deposit(amount):
 	balance += amount
 	update_balance()
 
+func reset():
+	income_per_tick = 0
+	add_income_per_tick(0)
+	
+	balance = 1000
+	update_balance()
 
 func _on_income_timer_timeout():
 	if income_per_tick == 0:

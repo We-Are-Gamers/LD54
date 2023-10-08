@@ -27,5 +27,7 @@ offset_top = -473.0
 offset_right = 119.0
 offset_bottom = -377.0
 
+[connection signal="game_over" from="Player" to="." method="_on_game_over"]
 [connection signal="begin_battle" from="CanvasLayer/Map" to="." method="_on_map_begin_battle"]
+[connection signal="game_over" from="CanvasLayer/Map" to="." method="_on_game_over"]
 [connection signal="level_up_button" from="CanvasLayer/LevelUp" to="Player" method="_on_level_up"]

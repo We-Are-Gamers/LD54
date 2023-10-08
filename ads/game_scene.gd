@@ -2,6 +2,8 @@ extends Node2D
 
 var AdWindow = preload("res://ads/ad_window.tscn")
 
+@onready var bank: Banking = get_node("/root/Bank")
+
 var dragging = false
 var preview_drag_to = Vector2(0, 0)
 var dragged_ad: AdDescription
@@ -33,3 +35,7 @@ func _input(event):
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.pressed):
 		place_ad()
 		dragging = false
+
+func _on_game_over(win):
+	bank.win = win
+	get_tree().change_scene_to_file("res://game_over.tscn")
