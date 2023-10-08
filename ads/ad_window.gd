@@ -42,15 +42,11 @@ func _input(event):
 			dragged = false
 
 
-func tick():
-	if current_ad.income_per_tick:
-		bank.deposit(current_ad.income_amount)
-	pass
-
-
 func set_ad(ad: AdDescription):
 	current_ad = ad
 	if !ad.income_per_tick:
 		bank.deposit(ad.income_amount)
+	else:
+		bank.add_income_per_tick(ad.income_amount)
 	$AdCollider.set_ad(ad)
 	
