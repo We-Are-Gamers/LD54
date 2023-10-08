@@ -4,10 +4,8 @@ class_name Enemy
 
 @export var max_health: int
 @export var current_health: int
-@export var heal_amount: int
-@export var rock_power: int
-@export var paper_power: int
-@export var scissor_power: int
+@export var attack_power: int = 1
+@export var level: int = 0
 @export var type: String
 @export var strongVsType: String
 @export var weakVsType: String
@@ -22,6 +20,7 @@ var ticks_remaining: int = ticks_per_attack
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	update_stats(level)
 	current_health = max_health
 	%EnemyIcon.texture = enemy_icon
 	emit_signal("update_health", current_health)
@@ -39,7 +38,7 @@ func _on_timer_timeout():
 	ticks_remaining -= 1
 	_update_intent(type)
 	if ticks_remaining == 0:
-		emit_signal("enemy_attack", 1, type)
+		emit_signal("enemy_attack", attack_power, type)
 		ticks_remaining = ticks_per_attack
 
 func _on_player_attack(damage, type):
@@ -52,3 +51,8 @@ func get_type_multiplier(type):
 	elif type == weakVsType:
 		return 2
 	return 1
+
+func update_stats(level):
+	var actual_level = level + 1
+	attack_power = attack_power * actual_level
+	max_health *= actual_level

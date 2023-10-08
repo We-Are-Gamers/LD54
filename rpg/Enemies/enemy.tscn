@@ -8,10 +8,6 @@
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_mp8il")
 max_health = 10
-heal_amount = 2
-rock_power = 1
-paper_power = 1
-scissor_power = 1
 type = "null"
 strongVsType = "null"
 weakVsType = "null"

@@ -24,6 +24,7 @@ func spawn_enemy(enemy_type):
 	current_enemy.update_health.connect(_on_enemy_health_update)
 	player.player_attack.connect(current_enemy._on_player_attack)
 	current_enemy.position = $EnemySpawnLocation.position
+	current_enemy.level = %Map.current_level
 	add_child(current_enemy)
 	
 
