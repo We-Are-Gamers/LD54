@@ -43,6 +43,8 @@ func _on_timer_timeout():
 
 func _on_player_attack(damage, type):
 	current_health -= damage * get_type_multiplier(type)
+	var emitter: GPUParticles2D = {"rock": $Particles/Rock, "paper": $Particles/Paper, "scissors": $Particles/Scissors}[type]
+	emitter.restart()
 	emit_signal("update_health", current_health)
 
 func get_type_multiplier(type):
