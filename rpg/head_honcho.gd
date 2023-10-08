@@ -6,6 +6,7 @@ var scissors_enemy = preload("res://rpg/Enemies/scissors_enemy.tscn")
 var enemies = [rock_enemy, paper_enemy, scissors_enemy]
 var current_enemy: Enemy
 @onready var player = get_node("Player") as Player
+@onready var bank: Banking = get_node("/root/Bank")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,11 +32,13 @@ func _on_enemy_health_update(health):
 		remove_child(current_enemy)
 		current_enemy.queue_free()
 		%Map.visible = true
+		bank.stop_income_tick()
 		%Map.increment_level()
 		$CanvasLayer/LevelUp.reenable()
 
 
 func _on_map_begin_battle(battle_type):
+	bank.start_income_tick()
 	%Map.visible = false
 	$CanvasLayer/LevelUp.unalive()
 	spawn_enemy(battle_type)

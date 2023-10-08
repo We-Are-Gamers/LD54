@@ -21,6 +21,7 @@ layer = 0
 unique_name_in_owner = true
 
 [node name="LevelUp" parent="CanvasLayer" instance=ExtResource("4_ba7om")]
+visible = false
 offset_left = -108.0
 offset_top = -473.0
 offset_right = 119.0

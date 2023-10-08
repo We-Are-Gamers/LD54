@@ -13,14 +13,9 @@ var income_per_tick = 0
 func _ready():
 	update_balance()
 	add_income_per_tick(0)
-	stars_income_tick()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-func  stars_income_tick():
+func  start_income_tick():
 	$IncomeTimer.start()
 	
 func  stop_income_tick():
