@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://djrect6ynej4v"]
 
+[ext_resource type="Material" uid="uid://dqkv7fgmx4f5o" path="res://rpg/battle_button_hover.tres" id="1_cpfhq"]
 [ext_resource type="Script" path="res://rpg/battle_button.gd" id="1_jgsno"]
-[ext_resource type="Material" uid="uid://cr7j381ax6gly" path="res://rpg/battle_button_enabled.tres" id="1_lrfvc"]
 
 [node name="BattleButton" type="TextureButton"]
-material = ExtResource("1_lrfvc")
+material = ExtResource("1_cpfhq")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,4 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jgsno")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

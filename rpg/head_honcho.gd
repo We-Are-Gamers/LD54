@@ -8,10 +8,11 @@ var current_enemy: Enemy
 @onready var player = get_node("Player") as Player
 @onready var bank: Banking = get_node("/root/Bank")
 
+signal game_over(win: bool)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%Map.visible = true
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,3 +45,7 @@ func _on_map_begin_battle(battle_type):
 	$CanvasLayer/LevelUp.unalive()
 	spawn_enemy(battle_type)
 	
+
+
+func _on_game_over(win):
+	emit_signal("game_over", win)

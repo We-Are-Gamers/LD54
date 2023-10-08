@@ -21,6 +21,7 @@ var type_button = {}
 
 signal update_health(current_health)
 signal player_attack(damage, type)
+signal game_over(win: bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,6 +69,8 @@ func heal(healing):
 
 func _on_enemy_attack(damage, type):
 	current_health -= damage
+	if current_health <= 0:
+		emit_signal("game_over", false)
 	$VBoxContainer/HealthBar.update_health(current_health)
 	
 
