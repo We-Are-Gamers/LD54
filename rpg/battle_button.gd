@@ -1,6 +1,6 @@
-extends TextureButton
+class_name BattleButton extends TextureButton
 
-class_name BattleButton
+
 
 var RockIcon = preload("res://resources/map_assets/coal.png")
 var PaperIcon = preload("res://resources/map_assets/paper.png")
