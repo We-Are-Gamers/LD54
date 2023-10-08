@@ -5,6 +5,7 @@ class_name Banking
 @export var balance: int = 1000
 
 signal balance_updated(balance)
+signal unlock_ads(level: int)
 
 var income_per_tick = 0
 var win: bool = false
@@ -50,6 +51,9 @@ func reset():
 	
 	balance = 1000
 	update_balance()
+	
+func level_up(level: int):
+	unlock_ads.emit(level)
 
 func _on_income_timer_timeout():
 	if income_per_tick == 0:
