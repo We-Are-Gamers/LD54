@@ -10,32 +10,32 @@ func _ready():
 	$Control/VBoxContainer/ButtonContainer/HealContainer/HealButton.pressed.connect(_on_heal_pressed)
 
 func set_power_levels(power_levels):
-	$Control/VBoxContainer/ButtonContainer/RockContainer/Label.text = "(Level {lv})".format({"lv": power_levels["rock"]})
-	$Control/VBoxContainer/ButtonContainer/PaperContainer/Label.text = "(Level {lv})".format({"lv": power_levels["paper"]})
-	$Control/VBoxContainer/ButtonContainer/ScissorsContainer/Label.text = "(Level {lv})".format({"lv": power_levels["scissors"]})
-	$Control/VBoxContainer/ButtonContainer/HealContainer/Label.text = "(Level {lv})".format({"lv": power_levels["heal"]})
+	$Control/VBoxContainer/ButtonContainer/RockContainer/Label.text = "(Level {lv})".format({"lv": power_levels[ActionType.ROCK]})
+	$Control/VBoxContainer/ButtonContainer/PaperContainer/Label.text = "(Level {lv})".format({"lv": power_levels[ActionType.PAPER]})
+	$Control/VBoxContainer/ButtonContainer/ScissorsContainer/Label.text = "(Level {lv})".format({"lv": power_levels[ActionType.SCISSORS]})
+	$Control/VBoxContainer/ButtonContainer/HealContainer/Label.text = "(Level {lv})".format({"lv": power_levels[ActionType.HEAL]})
 
 func reenable():
 	visible = true
 
 
 func _on_rock_pressed():
-	level_up_button.emit("rock")
+	level_up_button.emit(ActionType.ROCK)
 	unalive()
 	
 
 func _on_paper_pressed():
-	level_up_button.emit("paper")
+	level_up_button.emit(ActionType.PAPER)
 	unalive()
 
 
 func _on_scissors_pressed():
-	level_up_button.emit("scissors")
+	level_up_button.emit(ActionType.SCISSORS)
 	unalive()
 
 
 func _on_heal_pressed():
-	level_up_button.emit("heal")
+	level_up_button.emit(ActionType.HEAL)
 	unalive()
 
 func unalive():
