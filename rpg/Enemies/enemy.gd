@@ -56,3 +56,4 @@ func update_stats(level):
 	var actual_level = level + 1
 	attack_power = attack_power * actual_level
 	max_health *= actual_level
+	$VBoxContainer/HealthBar.update_max_health(max_health)
