@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=8 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
 [ext_resource type="PackedScene" uid="uid://d1nv736gkesjq" path="res://ads/ad_menu_button.tscn" id="3_tlw0m"]
 [ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="4_83n56"]
 [ext_resource type="Texture2D" uid="uid://oq4i8ihvofau" path="res://resources/100 Ads/graphic_design.png" id="4_onase"]
+[ext_resource type="Texture2D" uid="uid://d3o0lnnu38nrq" path="res://resources/100 Ads/mogus.png" id="5_q3upx"]
 [ext_resource type="Texture2D" uid="uid://m3qby1va0oyd" path="res://resources/100 Ads/truckin thursday.png" id="6_idejw"]
 
 [node name="AdMenu" type="Control"]
@@ -105,7 +106,7 @@ ad_texture = ExtResource("4_onase")
 [node name="AdButton2" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 income_amount = 200
-ad_texture = ExtResource("4_83n56")
+ad_texture = ExtResource("5_q3upx")
 
 [node name="AdButton3" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
