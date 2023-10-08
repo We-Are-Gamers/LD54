@@ -25,4 +25,4 @@ func _on_scissors_pressed():
 
 
 func _on_heal_pressed():
-	emit_signal("button_action", ActionType.SCISSORS)
+	emit_signal("button_action", ActionType.HEAL)
