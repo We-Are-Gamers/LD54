@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2i3gfx4exq0"]
+[gd_scene load_steps=4 format=3 uid="uid://b2i3gfx4exq0"]
 
 [ext_resource type="Script" path="res://rpg/level_up.gd" id="1_fdgju"]
+[ext_resource type="FontFile" uid="uid://c4k17wq62j7bc" path="res://resources/handwrite_font.ttf" id="2_mefdk"]
 
 [sub_resource type="Theme" id="Theme_ic2xp"]
+default_font = ExtResource("2_mefdk")
 default_font_size = 40
 Label/font_sizes/font_size = 40
 
@@ -42,7 +44,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 theme = SubResource("Theme_ic2xp")
 bbcode_enabled = true
-text = "[center]LEVEL UP![/center]"
+text = "[center]LEVEL UP[/center]"
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -50,16 +52,20 @@ layout_mode = 2
 
 [node name="RockButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mefdk")
 text = "Rock"
 
 [node name="PaperButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mefdk")
 text = "Paper"
 
 [node name="ScissorsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mefdk")
 text = "Scissors"
 
 [node name="HealButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mefdk")
 text = "Heal"

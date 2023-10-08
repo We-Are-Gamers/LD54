@@ -1,3 +1,6 @@
 <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons">Scissors icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/coal" title="coal icons">Coal icons created by Freepik - Flaticon</a>
+<a href="https://unsplash.com/photos/XGJBSkoqX_I?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash" title="truck">Truck from Unsplash</a>
+<a href="https://unsplash.com/photos/_kUxT8WkoeY?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash" title="paper background">Paper background from Unsplash</a>
+<a href="https://www.1001fonts.com/blzee-font.html" title="Font"></a>

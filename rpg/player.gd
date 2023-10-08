@@ -74,16 +74,21 @@ func attack(damage, type):
 	
 	
 func heal(healing):
+	if current_health >= max_health:
+		return
 	if !bank.withdraw(healing * 100):
 		return
 		
 	current_health += healing
+	if current_health >= max_health:
+		current_health = max_health
 	$VBoxContainer/HealthBar.update_health(current_health)
 
 
 func _on_enemy_attack(damage, type):
 	current_health -= damage
 	if current_health <= 0:
+		current_health = 0
 		emit_signal("game_over", false)
 	$VBoxContainer/HealthBar.update_health(current_health)
 	

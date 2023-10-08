@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://jku1cwr83dwm"]
+[gd_scene load_steps=7 format=3 uid="uid://jku1cwr83dwm"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_2xv1i"]
+[ext_resource type="Texture2D" uid="uid://deeexhb1i68n3" path="res://resources/button/play.png" id="1_m5xpw"]
+[ext_resource type="Texture2D" uid="uid://denj332q3n6d0" path="res://resources/button/play_highlight.png" id="2_k0x7c"]
+[ext_resource type="Texture2D" uid="uid://d1w0hhcwvkb14" path="res://resources/paper.jpg" id="2_w1mts"]
 
 [sub_resource type="Animation" id="Animation_begyb"]
 resource_name = "menu_fade"
@@ -30,14 +33,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = 780.0
 offset_top = 312.0
 offset_right = 980.0
 offset_bottom = 376.0
-text = "Play"
+texture_normal = ExtResource("1_m5xpw")
+texture_hover = ExtResource("2_k0x7c")
 
 [node name="MainMenu" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -56,3 +60,9 @@ next_scene_path = "res://ads/game_scene.tscn"
 libraries = {
 "": SubResource("AnimationLibrary_4gesp")
 }
+
+[node name="Paper" type="Sprite2D" parent="."]
+z_index = -999
+position = Vector2(980, 549)
+rotation = -1.5708
+texture = ExtResource("2_w1mts")
