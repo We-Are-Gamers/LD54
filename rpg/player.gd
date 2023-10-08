@@ -88,5 +88,4 @@ func _on_balance_updated(balance):
 
 func _on_level_up(type: String):
 	type_power[type] = type_power[type] + power_growth
-	print(type_power[type])
 	update_button(type, type_power[type])

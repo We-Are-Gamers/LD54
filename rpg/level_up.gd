@@ -10,17 +10,28 @@ func _ready():
 	$VBoxContainer/HBoxContainer/HealButton.pressed.connect(_on_heal_pressed)
 
 
+func reenable():
+	visible = true
+
+
 func _on_rock_pressed():
 	level_up_button.emit("rock")
+	unalive()
 	
 
 func _on_paper_pressed():
 	level_up_button.emit("paper")
+	unalive()
 
 
 func _on_scissors_pressed():
 	level_up_button.emit("scissors")
+	unalive()
 
 
 func _on_heal_pressed():
 	level_up_button.emit("heal")
+	unalive()
+
+func unalive():
+	visible = false

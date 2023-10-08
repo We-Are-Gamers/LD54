@@ -32,9 +32,11 @@ func _on_enemy_health_update(health):
 		current_enemy.queue_free()
 		%Map.visible = true
 		%Map.increment_level()
+		$CanvasLayer/LevelUp.reenable()
 
 
 func _on_map_begin_battle(battle_type):
 	%Map.visible = false
+	$CanvasLayer/LevelUp.unalive()
 	spawn_enemy(battle_type)
 	
