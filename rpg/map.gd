@@ -5,6 +5,8 @@ var PackedBattleButton = preload("res://rpg/battle_button.tscn")
 @export var max_level: int = 10
 @export var max_room_width: int = 3
 
+@onready var bank = get_node("/root/Bank")
+
 var current_level: int = 0
 var map = []
 var path_taken = []
@@ -121,6 +123,7 @@ func increment_level():
 	current_level += 1
 	if current_level == max_level:
 		emit_signal("game_over", true)
+	bank.level_up(current_level)
 	_update_active_buttons()
 
 

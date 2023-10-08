@@ -157,17 +157,20 @@ ad_texture = ExtResource("5_q3upx")
 
 [node name="AdButton3" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
+unlock_level = 1
 income_amount = 20
 income_per_tick = true
 ad_texture = ExtResource("6_idejw")
 
 [node name="AdButton4" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
+unlock_level = 1
 income_amount = 300
 ad_texture = ExtResource("7_m847v")
 
 [node name="AdButton5" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
+unlock_level = 2
 income_amount = 300
 ad_texture = ExtResource("8_kpd33")
 ad_animation = SubResource("SpriteFrames_4ryx4")
