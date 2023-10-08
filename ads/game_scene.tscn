@@ -74,3 +74,4 @@ check_collisions = true
 z_index = -1
 
 [connection signal="spawn_ad_preview" from="CanvasLayer/AdMenu" to="." method="_on_spawn_ad_preview"]
+[connection signal="game_over" from="test_scene" to="." method="_on_game_over"]
