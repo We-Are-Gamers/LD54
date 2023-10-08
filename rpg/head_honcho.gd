@@ -36,6 +36,7 @@ func _on_enemy_health_update(health):
 		%Map.visible = true
 		bank.stop_income_tick()
 		%Map.increment_level()
+		$CanvasLayer/LevelUp.set_power_levels(player.type_power)
 		$CanvasLayer/LevelUp.reenable()
 
 

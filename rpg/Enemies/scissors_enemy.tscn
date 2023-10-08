@@ -1,10 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://ukbcvnovdeoc"]
 
 [ext_resource type="PackedScene" uid="uid://dkp78lsiveu5m" path="res://rpg/Enemies/enemy.tscn" id="1_l8e76"]
-[ext_resource type="Texture2D" uid="uid://dxnhtraxs7b5k" path="res://resources/evil_scissors.png" id="2_7drup"]
+[ext_resource type="Texture2D" uid="uid://ct2fs8fwen0l4" path="res://resources/enemies/scissors_enemy.png" id="3_exge4"]
 
 [node name="Scissors Enemy" instance=ExtResource("1_l8e76")]
-type = "scissors"
-strongVsType = "paper"
-weakVsType = "rock"
-enemy_icon = ExtResource("2_7drup")
+type = 2
+strongVsType = 1
+enemy_icon = ExtResource("3_exge4")
+
+[node name="VBoxContainer" parent="." index="0"]
+offset_left = -256.0
+offset_top = -349.0
+offset_right = 256.0
+offset_bottom = 349.0
+
+[node name="EnemyIcon" parent="VBoxContainer/BoxContainer" index="0"]
+texture = ExtResource("3_exge4")
+
+[connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health" flags=18]

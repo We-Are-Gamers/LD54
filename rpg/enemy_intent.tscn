@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbg6pkkcpfxsn"]
+[gd_scene load_steps=4 format=3 uid="uid://dbg6pkkcpfxsn"]
 
-[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="1_hne3j"]
+[ext_resource type="Texture2D" uid="uid://wfp1mj1yappq" path="res://resources/stopwatch.png" id="1_0tlik"]
+[ext_resource type="FontFile" uid="uid://c4k17wq62j7bc" path="res://resources/handwrite_font.ttf" id="2_ct2ah"]
 
 [sub_resource type="GDScript" id="GDScript_sw5t5"]
 script/source = "extends Control
@@ -16,31 +17,39 @@ func _process(delta):
 	pass
 
 
-func _on_enemy_countdown(remaining, type):
-	$Type.text = str(type)
+func _on_enemy_countdown(remaining, type: ActionType.ActionTypeEnum):
+	$Type.text =  ActionType.ActionTypeEnum.keys()[type]
 	$Progress.value = 1.0-remaining
 "
 
 [node name="EnemyIntent" type="HBoxContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 169.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 script = SubResource("GDScript_sw5t5")
 
 [node name="Progress" type="TextureProgressBar" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.0
 value = 1.0
 fill_mode = 5
-texture_progress = ExtResource("1_hne3j")
+texture_progress = ExtResource("1_0tlik")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Type" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+theme_override_fonts/font = ExtResource("2_ct2ah")
+theme_override_font_sizes/font_size = 40
 text = "N/A"
 horizontal_alignment = 1

@@ -27,7 +27,8 @@ text = "ad btn"
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ompd")
-text = "   description"
+text = "description"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

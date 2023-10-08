@@ -18,8 +18,8 @@ signal pressed()
 
 func _ready():
 	$Button.text = "{x}x{y}".format({"x": ad_size.x, "y": ad_size.y})
-	var tick_desc = "per tick" if income_per_tick else "when placed"
-	var income_text = "   makes ${0} {1}".format([income_amount, tick_desc])
+	var tick_desc = "/s" if income_per_tick else ""
+	var income_text = "+${0}{1}".format([income_amount, tick_desc])
 	$Label.text = income_text
 
 func _on_mouse_entered():

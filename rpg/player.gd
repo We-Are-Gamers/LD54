@@ -12,9 +12,6 @@ class_name Player
 @export var power_growth: int = 1
 @export var cost_multiplier: int = 100
 
-
-var types = {"rock": "rock", "paper": "paper", "scissors": "scissors", "heal": "heal"}
-
 var type_power = {}
 
 var type_button = {}
@@ -28,28 +25,28 @@ func _ready():
 	current_health = max_health
 	bank.balance_updated.connect(_on_balance_updated)
 	$VBoxContainer/HealthBar.update_health(current_health)
-	type_power = {types.rock: rock_power,
-			types.paper: paper_power,
-			types.scissors: scissor_power,
-			types.heal: heal_amount}
-	type_button[types.rock] = $ActionMenu/Rock
-	type_button[types.paper] = $ActionMenu/Paper
-	type_button[types.scissors] = $ActionMenu/Scissors
-	type_button[types.heal] = $ActionMenu/Heal
-	for type in types:
+	type_power = {ActionType.ROCK: rock_power,
+			ActionType.PAPER: paper_power,
+			ActionType.SCISSORS: scissor_power,
+			ActionType.HEAL: heal_amount}
+	type_button[ActionType.ROCK] = $ActionMenu/Rock
+	type_button[ActionType.PAPER] = $ActionMenu/Paper
+	type_button[ActionType.SCISSORS] = $ActionMenu/Scissors
+	type_button[ActionType.HEAL] = $ActionMenu/Heal
+	for type in ActionType.ActionTypeEnum.values():
 		update_button(type, type_power[type])
 
 
-func _lookup_sound_effect(type: String) -> AudioStreamPlayer:
-	if type == types.rock:
+func _lookup_sound_effect(type: ActionType.ActionTypeEnum) -> AudioStreamPlayer:
+	if type == ActionType.ROCK:
 		return $Audio/RockSound
-	elif type == types.paper:
+	elif type == ActionType.PAPER:
 		return $Audio/PaperSound
-	elif type == types.scissors:
+	elif type == ActionType.SCISSORS:
 		return $Audio/ScissorsSound
 	return null
 
-func _play_sound_effect(type: String):
+func _play_sound_effect(type: ActionType.ActionTypeEnum):
 	var effect = _lookup_sound_effect(type)
 	effect.play()
 
@@ -59,14 +56,14 @@ func _process(delta):
 	pass
 
 
-func _on_action_menu_button_action(type):
-	if(type == types.heal):
+func _on_action_menu_button_action(type: ActionType.ActionTypeEnum):
+	if(type == ActionType.HEAL):
 		heal(type_power[type])
 	else:
 		attack(type_power[type], type)
 		
 		
-func attack(damage, type):
+func attack(damage, type: ActionType.ActionTypeEnum):
 	if !bank.withdraw(get_cost(type_power[type])):
 		return
 	_play_sound_effect(type)
@@ -85,7 +82,7 @@ func heal(healing):
 	$VBoxContainer/HealthBar.update_health(current_health)
 
 
-func _on_enemy_attack(damage, type):
+func _on_enemy_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage
 	if current_health <= 0:
 		current_health = 0
@@ -93,21 +90,22 @@ func _on_enemy_attack(damage, type):
 	$VBoxContainer/HealthBar.update_health(current_health)
 	
 
-func update_button(type: String, power):
+func update_button(type: ActionType.ActionTypeEnum, power):
 	var real_cost = get_cost(power)
-	type_button[type].text = "{0}\nLevel {1}\n${2}".format([type.to_upper(), power, real_cost])
+	var type_name = ActionType.ActionTypeEnum.keys()[type].to_upper()
+	type_button[type].text = "{0}\nLevel {1}\n${2}".format([type_name, power, real_cost])
 		
 func get_cost(power) -> int:
 	return (power * cost_multiplier) / 2
 
 func _on_balance_updated(balance):
-	for type in types:
+	for type in ActionType.ActionTypeEnum.values():
 		var btn = type_button[type] as Button
 		btn.disabled = false
 		if get_cost(type_power[type]) > balance:
 			btn.disabled = true
 
-func _on_level_up(type: String):
+func _on_level_up(type: ActionType.ActionTypeEnum):
 	type_power[type] = type_power[type] + power_growth
 	update_button(type, type_power[type])
 	

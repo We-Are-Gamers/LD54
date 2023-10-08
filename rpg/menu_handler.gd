@@ -13,16 +13,16 @@ func _process(delta):
 
 
 func _on_rock_pressed():
-	emit_signal("button_action", "rock")
+	emit_signal("button_action", ActionType.ROCK)
 	
 
 func _on_paper_pressed():
-	emit_signal("button_action", "paper")
+	emit_signal("button_action", ActionType.PAPER)
 
 
 func _on_scissors_pressed():
-	emit_signal("button_action", "scissors")
+	emit_signal("button_action", ActionType.SCISSORS)
 
 
 func _on_heal_pressed():
-	emit_signal("button_action", "heal")
+	emit_signal("button_action", ActionType.HEAL)
