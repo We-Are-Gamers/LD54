@@ -7,7 +7,6 @@ var PackedBattleButton = preload("res://rpg/battle_button.tscn")
 
 var current_level: int = 0
 
-var map = []
 
 signal begin_battle(battle_type: BattleButton.BattleType)
 signal game_over(win: bool)
@@ -29,6 +28,7 @@ func _update_active_buttons():
 
 
 func _ready():
+	var map = []
 	for i in range(max_level):
 		map.push_back([])
 	for i in range(max_level, 0, -1):
@@ -47,7 +47,7 @@ func _ready():
 				h_box.add_child(space_node)
 		
 		h_box.alignment = BoxContainer.ALIGNMENT_CENTER
-	create_paths()
+	create_paths(map)
 	_update_active_buttons()
 	$ScrollContainer.set_deferred("scroll_vertical", 10000000)
 	%VBoxContainer.call_deferred("queue_redraw")
@@ -79,7 +79,7 @@ func create_row_paths(current_row, next_row):
 		create_node_paths(node, required_next, next_row, is_last)
 
 
-func create_paths():
+func create_paths(map):
 	for i in range(max_level - 1):
 		create_row_paths(map[i], map[i+1])
 	%VBoxContainer.paths = map

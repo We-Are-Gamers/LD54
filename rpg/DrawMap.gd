@@ -4,7 +4,7 @@ extends VBoxContainer
 var paths = []
 
 func _draw_path(from, to):
-	draw_line(from, to, Color.BLUE_VIOLET, 5.0)
+	draw_line(from, to, Color.SLATE_GRAY, 5.0)
 	
 func _get_button_pos(node):
 	var texture = node.texture_normal
