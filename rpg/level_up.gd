@@ -24,7 +24,3 @@ func _on_scissors_pressed():
 
 func _on_heal_pressed():
 	level_up_button.emit("heal")
-
-
-func disable_buttons():
-	
