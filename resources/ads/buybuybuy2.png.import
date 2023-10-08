@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3o0lnnu38nrq"
-path="res://.godot/imported/mogus.png-82168e8e6b6ecb4421cf9b194bae9b9e.ctex"
+uid="uid://bfs1cb6x2vrvx"
+path="res://.godot/imported/buybuybuy2.png-c3b8a6a8598c136f80f6b1ec670fa081.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/100 Ads/mogus.png"
-dest_files=["res://.godot/imported/mogus.png-82168e8e6b6ecb4421cf9b194bae9b9e.ctex"]
+source_file="res://resources/ads/buybuybuy2.png"
+dest_files=["res://.godot/imported/buybuybuy2.png-c3b8a6a8598c136f80f6b1ec670fa081.ctex"]
 
 [params]
 
