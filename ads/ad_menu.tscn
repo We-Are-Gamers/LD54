@@ -109,7 +109,8 @@ ad_texture = ExtResource("4_83n56")
 
 [node name="AdButton3" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
-income_amount = 450
+income_amount = 20
+income_per_tick = true
 ad_texture = ExtResource("4_7uwo2")
 
 [node name="MenuButton" type="TextureButton" parent="MenuPanel"]

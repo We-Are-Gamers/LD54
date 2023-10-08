@@ -1,13 +1,13 @@
-extends RigidBody2D
+class_name AdWindow extends RigidBody2D
 
-@onready var bank = get_node("/root/Bank")
+@onready var bank: Banking = get_node("/root/Bank")
 
 var dragged = false
 var stiffness = 690
 var mouseForce = Vector2(0,0)
 var dragStart = Vector2(0,0)
 var dragTo = Vector2(0,0)
-var ad: AdDescription
+var current_ad: AdDescription
 
 
 func _physics_process(delta):
@@ -20,10 +20,12 @@ func drag_window():
 	var distance = dragTo - to_global(dragStart)
 	mouseForce = distance.normalized() * stiffness * distance.length()
 
+
 func overlaps(point):
 	var rect =  $AdCollider.shape.get_rect()
 	var r = Rect2(rect.position * $AdCollider.scale, rect.size * $AdCollider.scale)
 	return r.has_point(to_local(point))
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -40,7 +42,15 @@ func _input(event):
 			dragged = false
 
 
+func tick():
+	if current_ad.income_per_tick:
+		bank.deposit(current_ad.income_amount)
+	pass
+
+
 func set_ad(ad: AdDescription):
-	bank.deposit(ad.income_amount)
+	current_ad = ad
+	if !ad.income_per_tick:
+		bank.deposit(ad.income_amount)
 	$AdCollider.set_ad(ad)
 	
