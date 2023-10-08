@@ -67,7 +67,7 @@ func _on_action_menu_button_action(type):
 		
 		
 func attack(damage, type):
-	if !bank.withdraw(damage * 100):
+	if !bank.withdraw(get_cost(type_power[type])):
 		return
 	_play_sound_effect(type)
 	emit_signal("player_attack", damage, type)
@@ -95,10 +95,10 @@ func _on_enemy_attack(damage, type):
 
 func update_button(type: String, power):
 	var real_cost = get_cost(power)
-	type_button[type].text = "{0}\n${1}".format([type.to_upper(), real_cost])
+	type_button[type].text = "{0}\nLevel {1}\n${2}".format([type.to_upper(), power, real_cost])
 		
 func get_cost(power) -> int:
-	return power * cost_multiplier
+	return (power * cost_multiplier) / 2
 
 func _on_balance_updated(balance):
 	for type in types:

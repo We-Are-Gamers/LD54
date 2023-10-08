@@ -43,8 +43,10 @@ metadata/_edit_group_ = true
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_ic2xp")
+theme_override_colors/default_color = Color(0.478431, 0, 0.505882, 1)
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "[center]LEVEL UP[/center]"
+text = "[center]LEVEL UP![/center]"
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]

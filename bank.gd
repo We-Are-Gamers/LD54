@@ -24,10 +24,10 @@ func  stop_income_tick():
 
 func add_income_per_tick(amount):
 	income_per_tick += amount
-	$BankInfo/IncomeLabel.text = "{0} per second".format([income_per_tick])
+	$BankInfo/IncomeLabel.text = "${0} per second".format([income_per_tick])
 
 func update_balance():
-	$BankInfo/BalanceLabel.text = str(balance)
+	$BankInfo/BalanceLabel.text = "${0}".format([balance])
 	balance_updated.emit(balance)
 
 func get_balance() -> int:

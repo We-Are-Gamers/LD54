@@ -21,11 +21,10 @@ layer = 0
 unique_name_in_owner = true
 
 [node name="LevelUp" parent="CanvasLayer" instance=ExtResource("4_ba7om")]
-visible = false
-offset_left = -108.0
-offset_top = -473.0
-offset_right = 119.0
-offset_bottom = -377.0
+offset_left = 551.0
+offset_top = -121.0
+offset_right = 778.0
+offset_bottom = -25.0
 
 [connection signal="begin_battle" from="CanvasLayer/Map" to="." method="_on_map_begin_battle"]
 [connection signal="level_up_button" from="CanvasLayer/LevelUp" to="Player" method="_on_level_up"]
