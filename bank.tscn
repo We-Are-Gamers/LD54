@@ -7,7 +7,7 @@
 default_font_size = 50
 
 [node name="Bank" type="Node2D"]
-position = Vector2(260, 37.915)
+position = Vector2(275, 55)
 script = ExtResource("1_httop")
 
 [node name="BankInfo" type="VBoxContainer" parent="."]
