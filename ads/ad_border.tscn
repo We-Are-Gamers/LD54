@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc7nntvqvbfet"]
+[gd_scene load_steps=3 format=3 uid="uid://cc7nntvqvbfet"]
 
-[ext_resource type="Texture2D" uid="uid://daj0dmdfuyb5f" path="res://resources/icon.svg" id="1_6losb"]
 [ext_resource type="Script" path="res://ads/ad_border.gd" id="1_70x4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q30u2"]
@@ -12,4 +11,5 @@ shape = SubResource("RectangleShape2D_q30u2")
 script = ExtResource("1_70x4n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6losb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
