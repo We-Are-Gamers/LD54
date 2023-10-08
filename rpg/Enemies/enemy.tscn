@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dbg6pkkcpfxsn" path="res://rpg/enemy_intent.tscn" id="2_1uh0b"]
 [ext_resource type="Texture2D" uid="uid://ccvc6gs5lgowj" path="res://resources/evil_icon.png" id="2_xewpe"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_gghqu"]
-[ext_resource type="Material" uid="uid://d3r5v2irh8eum" path="res://rpg/rock_hit_particle_material.tres" id="5_iaa42"]
+[ext_resource type="Material" uid="uid://bctj72hfjsvcn" path="res://rpg/rock_hit_particle_material.tres" id="5_iaa42"]
 [ext_resource type="Texture2D" uid="uid://cppxi5iy6h0nr" path="res://resources/small_stone.png" id="6_0qekw"]
-[ext_resource type="Material" uid="uid://ciowxypyo5j2g" path="res://rpg/paper_hit_particle_material.tres" id="7_vh1rc"]
+[ext_resource type="Material" uid="uid://f3tlma81juh4" path="res://rpg/paper_hit_particle_material.tres" id="7_vh1rc"]
 [ext_resource type="Texture2D" uid="uid://b4866g4iyaqo1" path="res://resources/small_paper.png" id="8_gl1ua"]
-[ext_resource type="Material" uid="uid://crb6e07rynwte" path="res://rpg/scissors_hit_particle_material.tres" id="9_2tee4"]
+[ext_resource type="Material" uid="uid://7ndraprf0h7y" path="res://rpg/scissors_hit_particle_material.tres" id="9_2tee4"]
 [ext_resource type="Texture2D" uid="uid://dbfpai3idfall" path="res://resources/small_slash.png" id="10_em30e"]
 
 [node name="Enemy" type="Node2D"]
@@ -46,12 +46,13 @@ wait_time = 0.25
 autostart = true
 
 [node name="BoxContainer" type="BoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 512)
 layout_mode = 2
 alignment = 1
 
 [node name="EnemyIcon" type="TextureRect" parent="VBoxContainer/BoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(512, 512)
 layout_mode = 2
 texture = ExtResource("2_xewpe")
 expand_mode = 1

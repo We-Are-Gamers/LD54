@@ -1,10 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://c78uw0gsf8evx"]
 
 [ext_resource type="PackedScene" uid="uid://dkp78lsiveu5m" path="res://rpg/Enemies/enemy.tscn" id="1_mp38q"]
-[ext_resource type="Texture2D" uid="uid://cjxflyqcqd73n" path="res://resources/evil_paper.png" id="2_mth0p"]
+[ext_resource type="Texture2D" uid="uid://b6vs7k6pasxis" path="res://resources/enemies/paper_enemy.png" id="3_euhnv"]
 
 [node name="Paper Enemy" instance=ExtResource("1_mp38q")]
 type = "paper"
 strongVsType = "rock"
 weakVsType = "scissors"
-enemy_icon = ExtResource("2_mth0p")
+enemy_icon = ExtResource("3_euhnv")
+
+[node name="VBoxContainer" parent="." index="0"]
+offset_top = -161.0
+offset_right = 133.0
+offset_bottom = 281.0
+
+[node name="EnemyIcon" parent="VBoxContainer/BoxContainer" index="0"]
+texture = ExtResource("3_euhnv")
+
+[connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health" flags=18]
