@@ -25,7 +25,6 @@ func _ready():
 	emit_signal("update_health", current_health)
 	$VBoxContainer/Type.text = ActionType.ActionTypeEnum.keys()[type].to_upper()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -35,8 +34,7 @@ func _on_timer_timeout():
 
 func _on_player_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage * get_type_multiplier(type)
-	var emitter: GPUParticles2D = {ActionType.ROCK: $Particles/Rock, ActionType.PAPER: $Particles/Paper, ActionType.SCISSORS: $Particles/Scissors}[type]
-	emitter.restart()
+	$SpecialEffects.do_action(type)
 	emit_signal("update_health", current_health)
 
 func get_type_multiplier(type: ActionType.ActionTypeEnum):

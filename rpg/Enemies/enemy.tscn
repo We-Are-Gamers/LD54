@@ -1,15 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkp78lsiveu5m"]
+[gd_scene load_steps=6 format=3 uid="uid://dkp78lsiveu5m"]
 
 [ext_resource type="Script" path="res://rpg/Enemies/enemy.gd" id="1_mp8il"]
 [ext_resource type="Texture2D" uid="uid://ccvc6gs5lgowj" path="res://resources/evil_icon.png" id="2_xewpe"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_gghqu"]
 [ext_resource type="FontFile" uid="uid://c4k17wq62j7bc" path="res://resources/handwrite_font.ttf" id="4_pe60q"]
-[ext_resource type="Material" uid="uid://bctj72hfjsvcn" path="res://rpg/rock_hit_particle_material.tres" id="5_iaa42"]
-[ext_resource type="Texture2D" uid="uid://cppxi5iy6h0nr" path="res://resources/small_stone.png" id="6_0qekw"]
-[ext_resource type="Material" uid="uid://f3tlma81juh4" path="res://rpg/paper_hit_particle_material.tres" id="7_vh1rc"]
-[ext_resource type="Texture2D" uid="uid://b4866g4iyaqo1" path="res://resources/small_paper.png" id="8_gl1ua"]
-[ext_resource type="Material" uid="uid://7ndraprf0h7y" path="res://rpg/scissors_hit_particle_material.tres" id="9_2tee4"]
-[ext_resource type="Texture2D" uid="uid://dbfpai3idfall" path="res://resources/small_slash.png" id="10_em30e"]
+[ext_resource type="PackedScene" uid="uid://ctg2uw44qxfh2" path="res://rpg/special_effects.tscn" id="5_j8vmd"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_mp8il")
@@ -56,30 +51,6 @@ layout_mode = 2
 texture = ExtResource("2_xewpe")
 expand_mode = 1
 
-[node name="Particles" type="Node2D" parent="."]
-position = Vector2(0, 100)
-
-[node name="Rock" type="GPUParticles2D" parent="Particles"]
-emitting = false
-process_material = ExtResource("5_iaa42")
-texture = ExtResource("6_0qekw")
-one_shot = true
-explosiveness = 0.9
-
-[node name="Paper" type="GPUParticles2D" parent="Particles"]
-emitting = false
-amount = 5
-process_material = ExtResource("7_vh1rc")
-texture = ExtResource("8_gl1ua")
-one_shot = true
-explosiveness = 0.83
-
-[node name="Scissors" type="GPUParticles2D" parent="Particles"]
-emitting = false
-amount = 4
-process_material = ExtResource("9_2tee4")
-texture = ExtResource("10_em30e")
-one_shot = true
-explosiveness = 0.7
+[node name="SpecialEffects" parent="." instance=ExtResource("5_j8vmd")]
 
 [connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health"]

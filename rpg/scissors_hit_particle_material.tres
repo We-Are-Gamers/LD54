@@ -9,7 +9,7 @@ curve = SubResource("Curve_a47dk")
 
 [resource]
 emission_shape = 1
-emission_sphere_radius = 50.0
+emission_sphere_radius = 200.0
 particle_flag_disable_z = true
 spread = 0.0
 gravity = Vector3(0, 0, 0)

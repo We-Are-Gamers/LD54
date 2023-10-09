@@ -38,20 +38,6 @@ func _ready():
 		update_button(type, type_power[type])
 
 
-func _lookup_sound_effect(type: ActionType.ActionTypeEnum) -> AudioStreamPlayer:
-	if type == ActionType.ROCK:
-		return $Audio/RockSound
-	elif type == ActionType.PAPER:
-		return $Audio/PaperSound
-	elif type == ActionType.SCISSORS:
-		return $Audio/ScissorsSound
-	return null
-
-func _play_sound_effect(type: ActionType.ActionTypeEnum):
-	var effect = _lookup_sound_effect(type)
-	effect.play()
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -76,8 +62,6 @@ func _on_timer_timeout():
 func attack(damage, type: ActionType.ActionTypeEnum):
 	if !bank.withdraw(get_cost(type_power[type])):
 		return
-		
-	_play_sound_effect(type)
 	emit_signal("player_attack", damage, type)
 	
 	

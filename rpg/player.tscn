@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddmaq0s288vp4"]
+[gd_scene load_steps=6 format=3 uid="uid://ddmaq0s288vp4"]
 
 [ext_resource type="Script" path="res://rpg/player.gd" id="1_hha6m"]
 [ext_resource type="Texture2D" uid="uid://bcpt3ups4rdk3" path="res://resources/player.png" id="2_xnd02"]
 [ext_resource type="Script" path="res://rpg/menu_handler.gd" id="4_flcgv"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="4_t53bt"]
 [ext_resource type="FontFile" uid="uid://c4k17wq62j7bc" path="res://resources/handwrite_font.ttf" id="5_cshk5"]
-[ext_resource type="AudioStream" uid="uid://dvc4oekuvaqs2" path="res://resources/audio/stone-1.mp3" id="5_id52g"]
-[ext_resource type="AudioStream" uid="uid://ch1f7uqm4kobx" path="res://resources/audio/paper-1.mp3" id="6_kcnq2"]
-[ext_resource type="AudioStream" uid="uid://ucrk6i8q16mc" path="res://resources/audio/scissors-1.mp3" id="7_oqnty"]
 
 [node name="Player" type="Node2D"]
 position = Vector2(297, 224)
@@ -76,18 +73,6 @@ offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("5_cshk5")
 toggle_mode = true
 text = "Heal"
-
-[node name="Audio" type="Node" parent="."]
-
-[node name="RockSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("5_id52g")
-
-[node name="PaperSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("6_kcnq2")
-
-[node name="ScissorsSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("7_oqnty")
-volume_db = 4.356
 
 [connection signal="button_action" from="ActionMenu" to="." method="_on_action_menu_button_action"]
 [connection signal="pressed" from="ActionMenu/Rock" to="ActionMenu" method="_on_rock_pressed"]
