@@ -722,89 +722,95 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0.996078, 0.945098, 0.862745, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuPanel"]
-layout_mode = 0
-offset_right = 230.0
-offset_bottom = 306.0
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPanel/ScrollContainer"]
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MenuPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Add an Ad"
 
-[node name="Description" type="Label" parent="MenuPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
 text = "Click and drag to add an ad"
 
-[node name="GraphicDesign" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="GraphicDesign" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 income_amount = 400
 ad_texture = ExtResource("4_onase")
 
-[node name="BuyNow" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="BuyNow" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 income_amount = 3
 income_per_tick = true
 ad_texture = ExtResource("7_m847v")
 
-[node name="Tbblobnoern" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Tbblobnoern" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 1
 income_amount = 5
 income_per_tick = true
 ad_texture = ExtResource("11_x8q4n")
 
-[node name="Amogus" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Amogus" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 1
 income_amount = 600
 ad_texture = ExtResource("5_q3upx")
 
-[node name="TruckinThursdays" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="TruckinThursdays" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 2
 income_amount = 25
 income_per_tick = true
 ad_texture = ExtResource("6_idejw")
 
-[node name="BuyBuyBuy" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="BuyBuyBuy" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 2
 income_amount = 100
 ad_texture = ExtResource("8_kpd33")
 ad_animation = SubResource("SpriteFrames_4ryx4")
 
-[node name="Medicine" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Medicine" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 3
 income_amount = 800
 ad_texture = ExtResource("12_xj1ok")
 
-[node name="PiForI" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="PiForI" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 3
 income_amount = -1
 ad_texture = ExtResource("13_d6ksr")
 
-[node name="Salmon" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Salmon" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 4
 income_amount = 10
@@ -812,47 +818,47 @@ income_per_tick = true
 ad_texture = ExtResource("12_7vin2")
 ad_animation = SubResource("SpriteFrames_2jnwm")
 
-[node name="Insurance" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Insurance" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 4
 income_amount = 500
 ad_texture = ExtResource("21_5dx54")
 
-[node name="Yoga" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Yoga" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 5
 income_amount = 1000
 ad_texture = ExtResource("20_lvnyv")
 
-[node name="Industry" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Industry" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 5
 income_amount = 100
 ad_texture = ExtResource("18_c2mfc")
 ad_animation = SubResource("SpriteFrames_n6piv")
 
-[node name="SusquehannaHats" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="SusquehannaHats" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 6
 income_amount = 20
 income_per_tick = true
 ad_texture = ExtResource("22_d65lg")
 
-[node name="Slurm" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Slurm" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 6
 income_amount = 20
 income_per_tick = true
 ad_texture = ExtResource("23_wko4q")
 
-[node name="Ponder" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Ponder" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 7
 income_amount = 1000
 ad_texture = ExtResource("24_ocjgp")
 ad_animation = SubResource("SpriteFrames_l1cpi")
 
-[node name="BigSmall" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="BigSmall" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 7
 income_amount = 20
@@ -861,48 +867,48 @@ ad_texture = SubResource("AtlasTexture_d7avr")
 ad_animation = SubResource("SpriteFrames_q43li")
 
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/BuyNow" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/BuyNow" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/BuyNow" to="." method="_on_button_preview_ad"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Tbblobnoern" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Tbblobnoern" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Amogus" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Amogus" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Amogus" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/TruckinThursdays" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/TruckinThursdays" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/TruckinThursdays" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/BuyBuyBuy" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/BuyBuyBuy" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/BuyBuyBuy" to="." method="_on_button_preview_ad"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Medicine" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Medicine" to="." method="_on_button_preview_ad"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/PiForI" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/PiForI" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Slurm" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Slurm" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Slurm" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Ponder" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Ponder" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Ponder" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BuyNow" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BuyNow" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BuyNow" to="." method="_on_button_preview_ad"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Tbblobnoern" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Tbblobnoern" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Amogus" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Amogus" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Amogus" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/TruckinThursdays" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/TruckinThursdays" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/TruckinThursdays" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BuyBuyBuy" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BuyBuyBuy" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BuyBuyBuy" to="." method="_on_button_preview_ad"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Medicine" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Medicine" to="." method="_on_button_preview_ad"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/PiForI" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/PiForI" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Slurm" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Slurm" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Slurm" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Ponder" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Ponder" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Ponder" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_preview_ad"]
