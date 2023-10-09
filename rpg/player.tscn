@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddmaq0s288vp4"]
+[gd_scene load_steps=23 format=3 uid="uid://ddmaq0s288vp4"]
 
 [ext_resource type="Script" path="res://rpg/player.gd" id="1_hha6m"]
 [ext_resource type="Texture2D" uid="uid://bcpt3ups4rdk3" path="res://resources/player.png" id="2_xnd02"]
@@ -8,22 +8,26 @@
 [ext_resource type="Texture2D" uid="uid://bedaafq6m28iu" path="res://resources/button/rock.png" id="6_ssno5"]
 [ext_resource type="Texture2D" uid="uid://cnbuide5u6qxf" path="res://resources/button/rock_pressed.png" id="7_0k40o"]
 [ext_resource type="Texture2D" uid="uid://sgjiwx2ydnyi" path="res://resources/button/rock_highlight.png" id="8_5rwus"]
+[ext_resource type="Texture2D" uid="uid://crm53mf4jqjbi" path="res://resources/button/rock_disabled.png" id="8_gleve"]
 [ext_resource type="Texture2D" uid="uid://6u77xxhs6j3m" path="res://resources/button/paper.png" id="9_xutxd"]
 [ext_resource type="Texture2D" uid="uid://y3noqhg2qvrq" path="res://resources/button/paper_pressed.png" id="10_g5ljm"]
 [ext_resource type="Texture2D" uid="uid://drrdm0cxlwyup" path="res://resources/button/paper_highlight.png" id="11_1wo4l"]
 [ext_resource type="Texture2D" uid="uid://0pcqwfku4lx2" path="res://resources/button/scissors.png" id="12_joh7y"]
+[ext_resource type="Texture2D" uid="uid://cdtod48xoq158" path="res://resources/button/heal_disabled.png" id="13_di7og"]
+[ext_resource type="Texture2D" uid="uid://belolhh08ye2d" path="res://resources/button/paper_disabled.png" id="13_kiget"]
 [ext_resource type="Texture2D" uid="uid://pjcnyfv70nso" path="res://resources/button/scissors_pressed.png" id="13_li17s"]
 [ext_resource type="Texture2D" uid="uid://v3gn4ws2g5hq" path="res://resources/button/scissors_highlight.png" id="14_0c1hb"]
 [ext_resource type="Texture2D" uid="uid://b8f0plolkdnvb" path="res://resources/button/heal.png" id="15_xd4gt"]
 [ext_resource type="Texture2D" uid="uid://oy0jx8wagjfr" path="res://resources/button/heal_pressed.png" id="16_l5akk"]
+[ext_resource type="Texture2D" uid="uid://dsaddf8nymip2" path="res://resources/button/scissors_disabled.png" id="17_gtxte"]
 [ext_resource type="Texture2D" uid="uid://dplih68sywsg" path="res://resources/button/heal_highlight.png" id="17_hb8sx"]
 [ext_resource type="PackedScene" uid="uid://ctg2uw44qxfh2" path="res://rpg/special_effects.tscn" id="18_33ymb"]
 
 [node name="Player" type="Node2D"]
 position = Vector2(278, 292)
 script = ExtResource("1_hha6m")
-max_health = 10
-heal_amount = 2
+max_health = 25
+heal_amount = 5
 rock_power = 1
 paper_power = 1
 scissor_power = 1
@@ -70,6 +74,7 @@ toggle_mode = true
 texture_normal = ExtResource("6_ssno5")
 texture_pressed = ExtResource("7_0k40o")
 texture_hover = ExtResource("8_5rwus")
+texture_disabled = ExtResource("8_gleve")
 
 [node name="Label" type="Label" parent="ActionMenu/ButtonContainer/RockContainer"]
 layout_mode = 2
@@ -87,6 +92,7 @@ toggle_mode = true
 texture_normal = ExtResource("9_xutxd")
 texture_pressed = ExtResource("10_g5ljm")
 texture_hover = ExtResource("11_1wo4l")
+texture_disabled = ExtResource("13_kiget")
 
 [node name="Label" type="Label" parent="ActionMenu/ButtonContainer/PaperContainer"]
 layout_mode = 2
@@ -104,6 +110,7 @@ toggle_mode = true
 texture_normal = ExtResource("12_joh7y")
 texture_pressed = ExtResource("13_li17s")
 texture_hover = ExtResource("14_0c1hb")
+texture_disabled = ExtResource("17_gtxte")
 
 [node name="Label" type="Label" parent="ActionMenu/ButtonContainer/ScissorsContainer"]
 layout_mode = 2
@@ -121,6 +128,7 @@ toggle_mode = true
 texture_normal = ExtResource("15_xd4gt")
 texture_pressed = ExtResource("16_l5akk")
 texture_hover = ExtResource("17_hb8sx")
+texture_disabled = ExtResource("13_di7og")
 
 [node name="Label" type="Label" parent="ActionMenu/ButtonContainer/HealContainer"]
 layout_mode = 2

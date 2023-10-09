@@ -11,6 +11,9 @@ script = ExtResource("1_ftnay")
 
 [node name="Player" parent="." instance=ExtResource("2_pw7o6")]
 position = Vector2(400, 308.33)
+current_health = null
+power_growth = null
+cost_multiplier = null
 
 [node name="EnemySpawnLocation" type="Node2D" parent="."]
 position = Vector2(1300, 500)
@@ -35,7 +38,7 @@ grow_horizontal = 1
 
 [node name="Timer" parent="." instance=ExtResource("5_3lqwx")]
 visible = false
-position = Vector2(896, 225)
+position = Vector2(979, 142)
 
 [connection signal="game_over" from="Player" to="." method="_on_game_over"]
 [connection signal="level_up_complete" from="Player" to="." method="_on_level_up_complete"]
