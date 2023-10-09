@@ -80,10 +80,12 @@ func heal(healing):
 	if current_health >= max_health:
 		current_health = max_health
 	$VBoxContainer/HealthBar.update_health(current_health)
+	$SpecialEffects.do_action(ActionType.HEAL)
 
 
 func _on_enemy_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage
+	$SpecialEffects.do_action(type)
 	if current_health <= 0:
 		current_health = 0
 		emit_signal("game_over", false)

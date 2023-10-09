@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddmaq0s288vp4"]
+[gd_scene load_steps=19 format=3 uid="uid://ddmaq0s288vp4"]
 
 [ext_resource type="Script" path="res://rpg/player.gd" id="1_hha6m"]
 [ext_resource type="Texture2D" uid="uid://bcpt3ups4rdk3" path="res://resources/player.png" id="2_xnd02"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b8f0plolkdnvb" path="res://resources/button/heal.png" id="15_xd4gt"]
 [ext_resource type="Texture2D" uid="uid://oy0jx8wagjfr" path="res://resources/button/heal_pressed.png" id="16_l5akk"]
 [ext_resource type="Texture2D" uid="uid://dplih68sywsg" path="res://resources/button/heal_highlight.png" id="17_hb8sx"]
+[ext_resource type="PackedScene" uid="uid://ctg2uw44qxfh2" path="res://rpg/special_effects.tscn" id="18_33ymb"]
 
 [node name="Player" type="Node2D"]
 position = Vector2(278, 292)
@@ -127,5 +128,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_cshk5")
 theme_override_font_sizes/font_size = 25
 text = "Level"
+
+[node name="SpecialEffects" parent="." instance=ExtResource("18_33ymb")]
+position = Vector2(-10, 302)
 
 [connection signal="button_action" from="ActionMenu" to="." method="_on_action_menu_button_action"]
