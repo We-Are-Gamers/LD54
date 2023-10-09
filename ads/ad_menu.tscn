@@ -43,6 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_qew6a")
+slow_menu_duration = 0.2
 
 [node name="Preview" type="Control" parent="."]
 visible = false

@@ -4,7 +4,10 @@ signal button_action(type)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ButtonContainer/RockContainer/RockButton.pressed.connect(_on_rock_pressed)
+	$ButtonContainer/PaperContainer/PaperButton.pressed.connect(_on_paper_pressed)
+	$ButtonContainer/ScissorsContainer/ScissorsButton.pressed.connect(_on_scissors_pressed)
+	$ButtonContainer/HealContainer/HealButton.pressed.connect(_on_heal_pressed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,30 +17,30 @@ func _process(delta):
 
 func _on_rock_pressed():
 	reset_buttons()
-	$Rock.button_pressed = true
+	$ButtonContainer/RockContainer/RockButton.button_pressed = true
 	emit_signal("button_action", ActionType.ROCK)
 	
 
 func _on_paper_pressed():
 	reset_buttons()
-	$Paper.button_pressed = true
+	$ButtonContainer/PaperContainer/PaperButton.button_pressed = true
 	emit_signal("button_action", ActionType.PAPER)
 
 
 func _on_scissors_pressed():
 	reset_buttons()
-	$Scissors.button_pressed = true
+	$ButtonContainer/ScissorsContainer/ScissorsButton.button_pressed = true
 	emit_signal("button_action", ActionType.SCISSORS)
 
 
 func _on_heal_pressed():
 	reset_buttons()
-	$Heal.button_pressed = true
+	$ButtonContainer/HealContainer/HealButton.button_pressed = true
 	emit_signal("button_action", ActionType.HEAL)
 
 
 func reset_buttons():
-	$Rock.button_pressed = false
-	$Paper.button_pressed = false
-	$Scissors.button_pressed = false
-	$Heal.button_pressed = false
+	$ButtonContainer/RockContainer/RockButton.button_pressed = false
+	$ButtonContainer/PaperContainer/PaperButton.button_pressed = false
+	$ButtonContainer/ScissorsContainer/ScissorsButton.button_pressed = false
+	$ButtonContainer/HealContainer/HealButton.button_pressed = false
