@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=109 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ch8jfpfst6p02" path="res://resources/ads/ponder_texture.png" id="24_ocjgp"]
 [ext_resource type="Texture2D" uid="uid://dfb30rcxgjgyr" path="res://resources/ads/ponder.png" id="25_ddnuv"]
 [ext_resource type="Texture2D" uid="uid://kbfwhdu8as46" path="res://resources/ads/bigsmall.png" id="26_r1xdf"]
+[ext_resource type="Texture2D" uid="uid://x6ymamp0iyfi" path="res://resources/ads/help.png" id="27_oj2j5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul2t"]
 bg_color = Color(0.996078, 0.945098, 0.862745, 1)
@@ -866,6 +867,12 @@ income_per_tick = true
 ad_texture = SubResource("AtlasTexture_d7avr")
 ad_animation = SubResource("SpriteFrames_q43li")
 
+[node name="Help" parent="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+unlock_level = 8
+income_amount = 100
+ad_texture = ExtResource("27_oj2j5")
+
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_pressed"]
@@ -912,3 +919,6 @@ ad_animation = SubResource("SpriteFrames_q43li")
 [connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/BigSmall" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Help" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Help" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/ScrollContainer/MarginContainer/VBoxContainer/Help" to="." method="_on_button_preview_ad"]
