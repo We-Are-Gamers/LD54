@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://jku1cwr83dwm"]
+[gd_scene load_steps=8 format=3 uid="uid://jku1cwr83dwm"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_2xv1i"]
+[ext_resource type="Texture2D" uid="uid://dsnnloby8fk60" path="res://resources/title.png" id="1_77cdj"]
 [ext_resource type="Texture2D" uid="uid://deeexhb1i68n3" path="res://resources/button/play.png" id="1_m5xpw"]
 [ext_resource type="Texture2D" uid="uid://denj332q3n6d0" path="res://resources/button/play_highlight.png" id="2_k0x7c"]
 [ext_resource type="Texture2D" uid="uid://d1w0hhcwvkb14" path="res://resources/paper.jpg" id="2_w1mts"]
@@ -32,16 +33,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+
+[node name="Title" type="Sprite2D" parent="Control"]
+texture = ExtResource("1_77cdj")
 
 [node name="Play" type="TextureButton" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 0
-offset_left = 780.0
-offset_top = 312.0
-offset_right = 980.0
-offset_bottom = 376.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("1_m5xpw")
 texture_hover = ExtResource("2_k0x7c")
+
+[node name="AdHolder" type="Control" parent="."]
+anchors_preset = 0
 
 [node name="MainMenu" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
