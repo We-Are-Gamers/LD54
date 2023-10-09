@@ -2,14 +2,14 @@
 
 [ext_resource type="Material" uid="uid://bctj72hfjsvcn" path="res://rpg/rock_hit_particle_material.tres" id="1_bc6q1"]
 [ext_resource type="Script" path="res://rpg/special_effects.gd" id="1_pre61"]
-[ext_resource type="Texture2D" uid="uid://cppxi5iy6h0nr" path="res://resources/small_stone.png" id="2_j4ojs"]
 [ext_resource type="Material" uid="uid://f3tlma81juh4" path="res://rpg/paper_hit_particle_material.tres" id="3_1pqt7"]
-[ext_resource type="Texture2D" uid="uid://b4866g4iyaqo1" path="res://resources/small_paper.png" id="4_kdctn"]
 [ext_resource type="Material" uid="uid://7ndraprf0h7y" path="res://rpg/scissors_hit_particle_material.tres" id="5_2k62a"]
-[ext_resource type="Texture2D" uid="uid://dbfpai3idfall" path="res://resources/small_slash.png" id="6_yhavm"]
+[ext_resource type="Texture2D" uid="uid://duxmovpttc8fl" path="res://resources/particles/rock.png" id="6_ah42x"]
 [ext_resource type="AudioStream" uid="uid://dvc4oekuvaqs2" path="res://resources/audio/stone-1.mp3" id="8_s4wv2"]
+[ext_resource type="Texture2D" uid="uid://dlnuxpn82tvf6" path="res://resources/particles/paper.png" id="8_v2pxp"]
 [ext_resource type="AudioStream" uid="uid://ch1f7uqm4kobx" path="res://resources/audio/paper-1.mp3" id="9_a7eo8"]
 [ext_resource type="AudioStream" uid="uid://ucrk6i8q16mc" path="res://resources/audio/scissors-1.mp3" id="10_5j61d"]
+[ext_resource type="Texture2D" uid="uid://dd60thg4uihyt" path="res://resources/particles/scissors.png" id="10_y6sxg"]
 
 [node name="SpecialEffects" type="Node2D"]
 position = Vector2(0, 100)
@@ -33,7 +33,7 @@ volume_db = 4.356
 [node name="Rock" type="GPUParticles2D" parent="Particles"]
 emitting = false
 process_material = ExtResource("1_bc6q1")
-texture = ExtResource("2_j4ojs")
+texture = ExtResource("6_ah42x")
 one_shot = true
 explosiveness = 0.9
 
@@ -41,7 +41,7 @@ explosiveness = 0.9
 emitting = false
 amount = 5
 process_material = ExtResource("3_1pqt7")
-texture = ExtResource("4_kdctn")
+texture = ExtResource("8_v2pxp")
 one_shot = true
 explosiveness = 0.83
 
@@ -49,6 +49,6 @@ explosiveness = 0.83
 emitting = false
 amount = 4
 process_material = ExtResource("5_2k62a")
-texture = ExtResource("6_yhavm")
+texture = ExtResource("10_y6sxg")
 one_shot = true
 explosiveness = 0.7
