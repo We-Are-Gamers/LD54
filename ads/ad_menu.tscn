@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=35 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://psd0okelil17" path="res://resources/ads/salmon_4.png" id="15_ag5gy"]
 [ext_resource type="Texture2D" uid="uid://cvqmtb0jek6kd" path="res://resources/ads/industry_sprites1.png" id="18_c2mfc"]
 [ext_resource type="Texture2D" uid="uid://st8poy1kbnh8" path="res://resources/ads/industry.png" id="19_1tfg5"]
+[ext_resource type="Texture2D" uid="uid://bbuu0hkagfnx7" path="res://resources/ads/yoga.png" id="20_lvnyv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul2t"]
 bg_color = Color(0.996078, 0.945098, 0.862745, 1)
@@ -342,6 +343,12 @@ income_per_tick = true
 ad_texture = ExtResource("18_c2mfc")
 ad_animation = SubResource("SpriteFrames_n6piv")
 
+[node name="Yoga" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+unlock_level = 4
+income_amount = 400
+ad_texture = ExtResource("20_lvnyv")
+
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_pressed"]
@@ -370,3 +377,6 @@ ad_animation = SubResource("SpriteFrames_n6piv")
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_preview_ad"]
