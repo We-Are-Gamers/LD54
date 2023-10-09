@@ -26,6 +26,7 @@ signal level_up_complete()
 func _ready():
 	current_health = max_health
 	bank.balance_updated.connect(_on_balance_updated)
+	$VBoxContainer/HealthBar.update_max_health(max_health)
 	$VBoxContainer/HealthBar.update_health(current_health)
 	type_power = {ActionType.ROCK: rock_power,
 			ActionType.PAPER: paper_power,
@@ -76,9 +77,7 @@ func heal(healing):
 	if !bank.withdraw(healing * 100):
 		return
 		
-	current_health += healing
-	if current_health >= max_health:
-		current_health = max_health
+	current_health = max_health
 	$VBoxContainer/HealthBar.update_health(current_health)
 	$SpecialEffects.do_action(ActionType.HEAL)
 
@@ -94,8 +93,11 @@ func _on_enemy_attack(damage, type: ActionType.ActionTypeEnum):
 
 func update_button_label(type: ActionType.ActionTypeEnum, power):
 	var real_cost = get_cost(power)
-	var type_name = ActionType.ActionTypeEnum.keys()[type].to_upper()
-	type_button_label[type].text = "Level {0}\n${1}".format([power, real_cost])
+	
+	if type == ActionType.ActionTypeEnum.HEAL:
+		type_button_label[type].text = "FULL HEAL\n${1}".format([power, real_cost])
+	else:
+		type_button_label[type].text = "Level {0}\n${1}".format([power, real_cost])
 		
 func get_cost(power) -> int:
 	return (power * cost_multiplier) / 2

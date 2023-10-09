@@ -56,7 +56,8 @@ func _on_map_begin_battle(battle_type):
 
 func _do_combat():
 	player._on_timer_timeout()
-	current_enemy._on_timer_timeout()
+	if current_enemy.current_health > 0:
+		current_enemy._on_timer_timeout()
 
 
 func _on_game_over(win):
