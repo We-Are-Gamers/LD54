@@ -16,4 +16,6 @@ initial_velocity_min = 700.0
 initial_velocity_max = 700.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_e6d7j")
