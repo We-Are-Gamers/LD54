@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=14 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bclumvrsoxhkp" path="res://resources/ads/buybuybuy1.png" id="8_kpd33"]
 [ext_resource type="Texture2D" uid="uid://bfs1cb6x2vrvx" path="res://resources/ads/buybuybuy2.png" id="9_v08h1"]
 [ext_resource type="Texture2D" uid="uid://b7khs3ysohn7c" path="res://resources/ads/buybuybuy3.png" id="10_kepc1"]
+[ext_resource type="Texture2D" uid="uid://dvjn5g4tu60rn" path="res://resources/ads/tbblobnoern.png" id="11_x8q4n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul2t"]
 bg_color = Color(0.996078, 0.945098, 0.862745, 1)
@@ -175,6 +176,11 @@ income_amount = 300
 ad_texture = ExtResource("8_kpd33")
 ad_animation = SubResource("SpriteFrames_4ryx4")
 
+[node name="AdButton6" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+income_amount = 150
+ad_texture = ExtResource("11_x8q4n")
+
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/AdButton" to="." method="_on_button_pressed"]
@@ -191,3 +197,5 @@ ad_animation = SubResource("SpriteFrames_4ryx4")
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/AdButton5" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/AdButton5" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton5" to="." method="_on_button_preview_ad"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/AdButton6" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/AdButton6" to="." method="_on_button_preview_ad"]
