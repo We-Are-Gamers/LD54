@@ -11,9 +11,6 @@ script = ExtResource("1_ftnay")
 
 [node name="Player" parent="." instance=ExtResource("2_pw7o6")]
 position = Vector2(400, 308.33)
-current_health = null
-power_growth = null
-cost_multiplier = null
 
 [node name="EnemySpawnLocation" type="Node2D" parent="."]
 position = Vector2(1300, 500)

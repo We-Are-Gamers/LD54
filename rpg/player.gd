@@ -74,7 +74,7 @@ func attack(damage, type: ActionType.ActionTypeEnum):
 func heal(healing):
 	if current_health >= max_health:
 		return
-	if !bank.withdraw(healing * 100):
+	if !bank.withdraw(get_cost(ActionType.HEAL)):
 		return
 		
 	current_health = max_health
