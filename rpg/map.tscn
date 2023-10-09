@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6xi4eav84661"]
 
 [ext_resource type="Script" path="res://rpg/map.gd" id="1_gaemt"]
-[ext_resource type="Script" path="res://rpg/DrawMap.gd" id="2_p4ecu"]
+[ext_resource type="Script" path="res://rpg/draw_map.gd" id="2_in2a4"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -64,4 +64,4 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_constants/separation = 150
 alignment = 1
-script = ExtResource("2_p4ecu")
+script = ExtResource("2_in2a4")
