@@ -41,5 +41,5 @@ position = Vector2(979, 142)
 [connection signal="game_over" from="Player" to="." method="_on_game_over"]
 [connection signal="level_up_complete" from="Player" to="." method="_on_level_up_complete"]
 [connection signal="begin_battle" from="CanvasLayer/Map" to="." method="_on_map_begin_battle"]
-[connection signal="game_over" from="CanvasLayer/Map" to="." method="_on_game_over"]
+[connection signal="game_over" from="CanvasLayer/Map" to="." method="_on_map_game_over"]
 [connection signal="level_up_button" from="CanvasLayer/LevelUp" to="Player" method="_on_level_up"]

@@ -61,6 +61,8 @@ func _maybe_game_over():
 		$CanvasLayer/LevelUp.set_power_levels(player.type_power)
 		$CanvasLayer/LevelUp.reenable()
 
+func _on_map_game_over(win: bool):
+	emit_signal("game_over", true)
 
 func _on_level_up_complete():
 	%Map.unblock_buttons()
