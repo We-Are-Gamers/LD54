@@ -15,6 +15,9 @@ func _ready():
 	%Map.visible = true
 	$Timer.visible = false
 	$Timer.stop_tick()
+	$Timer.player_should_attack.connect(player._on_timer_timeout)
+	$Timer.enemy_should_attack.connect(_maybe_enemy_attacks)
+	$Timer.turn_over.connect(_maybe_game_over)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,9 +27,6 @@ func _process(delta):
 func spawn_enemy(enemy_type):
 	current_enemy = enemies[enemy_type].instantiate()
 	current_enemy.enemy_attack.connect(player._on_enemy_attack)
-	$Timer.player_should_attack.connect(player._on_timer_timeout)
-	$Timer.enemy_should_attack.connect(_maybe_enemy_attacks)
-	$Timer.turn_over.connect(_maybe_game_over)
 	player.player_attack.connect(current_enemy._on_player_attack)
 	current_enemy.position = $EnemySpawnLocation.position
 	current_enemy.level = %Map.current_level
@@ -48,7 +48,7 @@ func _maybe_enemy_attacks():
 
 
 func _maybe_game_over():
-	if $Player.current_health <= 0:
+	if player.current_health <= 0:
 		emit_signal("game_over", false)
 	if current_enemy.current_health <= 0:
 		remove_child(current_enemy)
