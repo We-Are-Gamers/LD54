@@ -18,7 +18,7 @@ func _process(delta):
 
 
 func _on_enemy_countdown(remaining, type: ActionType.ActionTypeEnum):
-	$Type.text =  ActionType.ActionTypeEnum.keys()[type]
+	$Type.text = ActionType.ActionTypeEnum.keys()[type]
 	$Progress.value = 1.0-remaining
 "
 

@@ -13,7 +13,6 @@ class_name Enemy
 @export var enemy_icon: Texture
 
 signal update_health(current_health)
-signal countdown(remaining, type: ActionType.ActionTypeEnum)
 signal enemy_attack(damage, type: ActionType.ActionTypeEnum)
 
 var ticks_remaining: int = ticks_per_attack
@@ -24,22 +23,15 @@ func _ready():
 	current_health = max_health
 	%EnemyIcon.texture = enemy_icon
 	emit_signal("update_health", current_health)
-	_update_intent(type)
+	$VBoxContainer/Type.text = ActionType.ActionTypeEnum.keys()[type].to_upper()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func _update_intent(attack_type: ActionType.ActionTypeEnum):
-	emit_signal("countdown", float(ticks_remaining)/ticks_per_attack, attack_type)
-
 func _on_timer_timeout():
-	ticks_remaining -= 1
-	_update_intent(type)
-	if ticks_remaining == 0:
-		emit_signal("enemy_attack", attack_power, type)
-		ticks_remaining = ticks_per_attack
+	emit_signal("enemy_attack", attack_power, type)
 
 func _on_player_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage * get_type_multiplier(type)

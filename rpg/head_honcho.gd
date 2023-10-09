@@ -13,6 +13,8 @@ signal game_over(win: bool)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%Map.visible = true
+	$Timer.visible = false
+	$Timer.stop_tick()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +25,7 @@ func spawn_enemy(enemy_type):
 	current_enemy = enemies[enemy_type].instantiate()
 	current_enemy.enemy_attack.connect(player._on_enemy_attack)
 	current_enemy.update_health.connect(_on_enemy_health_update)
+	$Timer.timeout.connect(_do_combat)
 	player.player_attack.connect(current_enemy._on_player_attack)
 	current_enemy.position = $EnemySpawnLocation.position
 	current_enemy.level = %Map.current_level
@@ -36,16 +39,24 @@ func _on_enemy_health_update(health):
 		%Map.visible = true
 		bank.stop_income_tick()
 		%Map.increment_level()
+		$Timer.visible = false
+		$Timer.stop_tick()
 		$CanvasLayer/LevelUp.set_power_levels(player.type_power)
 		$CanvasLayer/LevelUp.reenable()
 
 
 func _on_map_begin_battle(battle_type):
 	bank.start_income_tick()
+	$Timer.start_tick()
+	$Timer.visible = true
 	%Map.visible = false
 	$CanvasLayer/LevelUp.unalive()
 	spawn_enemy(battle_type)
 	
+
+func _do_combat():
+	player._on_timer_timeout()
+	current_enemy._on_timer_timeout()
 
 
 func _on_game_over(win):

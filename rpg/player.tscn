@@ -46,6 +46,7 @@ offset_left = -3.0
 offset_right = 43.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("5_cshk5")
+toggle_mode = true
 text = "Rock"
 
 [node name="Paper" type="Button" parent="ActionMenu"]
@@ -54,6 +55,7 @@ offset_left = 66.0
 offset_right = 120.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("5_cshk5")
+toggle_mode = true
 text = "Paper"
 
 [node name="Scissors" type="Button" parent="ActionMenu"]
@@ -63,6 +65,7 @@ offset_top = 1.0
 offset_right = 211.0
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("5_cshk5")
+toggle_mode = true
 text = "Scissors"
 
 [node name="Heal" type="Button" parent="ActionMenu"]
@@ -71,6 +74,7 @@ offset_left = 245.0
 offset_right = 288.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("5_cshk5")
+toggle_mode = true
 text = "Heal"
 
 [node name="Audio" type="Node" parent="."]

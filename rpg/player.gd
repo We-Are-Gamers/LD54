@@ -11,6 +11,7 @@ class_name Player
 @export var scissor_power: int
 @export var power_growth: int = 1
 @export var cost_multiplier: int = 100
+@export var selected_type: ActionType.ActionTypeEnum = ActionType.NONE
 
 var type_power = {}
 
@@ -33,7 +34,7 @@ func _ready():
 	type_button[ActionType.PAPER] = $ActionMenu/Paper
 	type_button[ActionType.SCISSORS] = $ActionMenu/Scissors
 	type_button[ActionType.HEAL] = $ActionMenu/Heal
-	for type in ActionType.ActionTypeEnum.values():
+	for type in ActionType.All():
 		update_button(type, type_power[type])
 
 
@@ -57,15 +58,25 @@ func _process(delta):
 
 
 func _on_action_menu_button_action(type: ActionType.ActionTypeEnum):
-	if(type == ActionType.HEAL):
-		heal(type_power[type])
-	else:
-		attack(type_power[type], type)
+	selected_type = type
 		
+
+func _on_timer_timeout():
+	if (selected_type == null or selected_type == ActionType.NONE):
+		return
+	elif(selected_type == ActionType.HEAL):
+		heal(type_power[selected_type])
+	else:
+		attack(type_power[selected_type], selected_type)
+		
+	$ActionMenu.reset_buttons()
+	selected_type = ActionType.NONE
+	
 		
 func attack(damage, type: ActionType.ActionTypeEnum):
 	if !bank.withdraw(get_cost(type_power[type])):
 		return
+		
 	_play_sound_effect(type)
 	emit_signal("player_attack", damage, type)
 	
@@ -99,7 +110,7 @@ func get_cost(power) -> int:
 	return (power * cost_multiplier) / 2
 
 func _on_balance_updated(balance):
-	for type in ActionType.ActionTypeEnum.values():
+	for type in ActionType.All():
 		var btn = type_button[type] as Button
 		btn.disabled = false
 		if get_cost(type_power[type]) > balance:

@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://dkp78lsiveu5m"]
 
 [ext_resource type="Script" path="res://rpg/Enemies/enemy.gd" id="1_mp8il"]
-[ext_resource type="PackedScene" uid="uid://dbg6pkkcpfxsn" path="res://rpg/enemy_intent.tscn" id="2_1uh0b"]
 [ext_resource type="Texture2D" uid="uid://ccvc6gs5lgowj" path="res://resources/evil_icon.png" id="2_xewpe"]
 [ext_resource type="PackedScene" uid="uid://dqenlrcretk07" path="res://rpg/health_bar.tscn" id="3_gghqu"]
+[ext_resource type="FontFile" uid="uid://c4k17wq62j7bc" path="res://resources/handwrite_font.ttf" id="4_pe60q"]
 [ext_resource type="Material" uid="uid://bctj72hfjsvcn" path="res://rpg/rock_hit_particle_material.tres" id="5_iaa42"]
 [ext_resource type="Texture2D" uid="uid://cppxi5iy6h0nr" path="res://resources/small_stone.png" id="6_0qekw"]
 [ext_resource type="Material" uid="uid://f3tlma81juh4" path="res://rpg/paper_hit_particle_material.tres" id="7_vh1rc"]
@@ -31,16 +31,18 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="EnemyIntent" parent="VBoxContainer" instance=ExtResource("2_1uh0b")]
-layout_mode = 2
-
 [node name="HealthBar" parent="VBoxContainer" instance=ExtResource("3_gghqu")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Timer" type="Timer" parent="VBoxContainer"]
-wait_time = 0.25
-autostart = true
+[node name="Type" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+theme_override_fonts/font = ExtResource("4_pe60q")
+theme_override_font_sizes/font_size = 40
+text = "N/A"
+horizontal_alignment = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(512, 512)
@@ -80,6 +82,4 @@ texture = ExtResource("10_em30e")
 one_shot = true
 explosiveness = 0.7
 
-[connection signal="countdown" from="." to="VBoxContainer/EnemyIntent" method="_on_enemy_countdown"]
 [connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health"]
-[connection signal="timeout" from="VBoxContainer/Timer" to="." method="_on_timer_timeout"]
