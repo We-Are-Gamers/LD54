@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctg2uw44qxfh2"]
+[gd_scene load_steps=14 format=3 uid="uid://ctg2uw44qxfh2"]
 
 [ext_resource type="Material" uid="uid://bctj72hfjsvcn" path="res://rpg/rock_hit_particle_material.tres" id="1_bc6q1"]
 [ext_resource type="Script" path="res://rpg/special_effects.gd" id="1_pre61"]
 [ext_resource type="Material" uid="uid://f3tlma81juh4" path="res://rpg/paper_hit_particle_material.tres" id="3_1pqt7"]
 [ext_resource type="Material" uid="uid://7ndraprf0h7y" path="res://rpg/scissors_hit_particle_material.tres" id="5_2k62a"]
+[ext_resource type="AudioStream" uid="uid://bploltef1m11p" path="res://resources/audio/healing.mp3" id="5_4qilp"]
 [ext_resource type="Texture2D" uid="uid://duxmovpttc8fl" path="res://resources/particles/rock.png" id="6_ah42x"]
 [ext_resource type="AudioStream" uid="uid://dvc4oekuvaqs2" path="res://resources/audio/stone-1.mp3" id="8_s4wv2"]
 [ext_resource type="Texture2D" uid="uid://dlnuxpn82tvf6" path="res://resources/particles/paper.png" id="8_v2pxp"]
 [ext_resource type="AudioStream" uid="uid://ch1f7uqm4kobx" path="res://resources/audio/paper-1.mp3" id="9_a7eo8"]
 [ext_resource type="AudioStream" uid="uid://ucrk6i8q16mc" path="res://resources/audio/scissors-1.mp3" id="10_5j61d"]
 [ext_resource type="Texture2D" uid="uid://dd60thg4uihyt" path="res://resources/particles/scissors.png" id="10_y6sxg"]
+[ext_resource type="Material" uid="uid://cqcuiil561k4s" path="res://rpg/heal_particle_material.tres" id="12_h35wu"]
+[ext_resource type="Texture2D" uid="uid://bfyvrs4is7sxb" path="res://resources/particles/heal.png" id="13_y23y3"]
 
 [node name="SpecialEffects" type="Node2D"]
 position = Vector2(0, 100)
@@ -27,6 +30,9 @@ stream = ExtResource("9_a7eo8")
 [node name="ScissorsSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("10_5j61d")
 volume_db = 4.356
+
+[node name="HealSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_4qilp")
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -52,3 +58,10 @@ process_material = ExtResource("5_2k62a")
 texture = ExtResource("10_y6sxg")
 one_shot = true
 explosiveness = 0.7
+
+[node name="Heal" type="GPUParticles2D" parent="Particles"]
+emitting = false
+process_material = ExtResource("12_h35wu")
+texture = ExtResource("13_y23y3")
+lifetime = 3.0
+one_shot = true
