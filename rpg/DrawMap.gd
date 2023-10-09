@@ -4,16 +4,9 @@ extends VBoxContainer
 var paths = []
 var path_taken = []
 
-func _draw_selection(button):
-	var texture = button.texture_normal
-	var half_size: Vector2 = texture.get_size() / 2
-	var pos = button.get_global_position() + half_size
-	pos -= get_global_position()
-	draw_arc(pos, half_size.length(),0, 12, 100, Color.BLACK, 1, true)
-
 
 func _draw_path(from, to, color):
-	draw_line(from, to, color, 5.0)
+	draw_dashed_line(from, to, color, 5.0, 20, false)
 
 
 func _get_button_pos(node):
@@ -28,7 +21,7 @@ func _draw_node_connections(node):
 	for connection in node.connections:
 		var color = Color.SLATE_GRAY
 		if(path_index > -1 && path_index + 1 < path_taken.size() && path_taken[path_index + 1] == connection):
-			color = Color.BLUE
+			color = Color.BLACK
 		var next_pos = _get_button_pos(connection)
 		_draw_path(node_pos, next_pos, color)
 
@@ -38,7 +31,5 @@ func _draw_row_connections(row):
 		_draw_node_connections(node)
 
 func _draw():
-	for button in path_taken:
-		_draw_selection(button)
 	for row in paths:
 		_draw_row_connections(row)

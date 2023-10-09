@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg2n5hpcnckxu"
-path="res://.godot/imported/scissors.png-0665bba22885ea01c4ce6e09449493cb.ctex"
+uid="uid://emf6r8t5lx5s"
+path="res://.godot/imported/coal_selected.png-dc648c1fa9f121ce346bfe9192e2c948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/map_assets/scissors.png"
-dest_files=["res://.godot/imported/scissors.png-0665bba22885ea01c4ce6e09449493cb.ctex"]
+source_file="res://resources/map_assets/coal_selected.png"
+dest_files=["res://.godot/imported/coal_selected.png-dc648c1fa9f121ce346bfe9192e2c948.ctex"]
 
 [params]
 
