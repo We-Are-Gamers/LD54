@@ -50,7 +50,7 @@ func _maybe_enemy_attacks():
 func _maybe_game_over():
 	if player.current_health <= 0:
 		emit_signal("game_over", false)
-	if current_enemy.current_health <= 0:
+	if current_enemy.current_health <= 0 || bank.auto_win:
 		remove_child(current_enemy)
 		current_enemy.queue_free()
 		%Map.visible = true

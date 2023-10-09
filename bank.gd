@@ -3,6 +3,7 @@ extends Node2D
 class_name Banking
 
 @export var balance: int = 1000
+@export var auto_win: bool = false
 
 signal balance_updated(balance)
 signal unlock_ads(level: int)
