@@ -52,5 +52,3 @@ texture = ExtResource("2_xewpe")
 expand_mode = 1
 
 [node name="SpecialEffects" parent="." instance=ExtResource("5_j8vmd")]
-
-[connection signal="update_health" from="." to="VBoxContainer/HealthBar" method="update_health"]

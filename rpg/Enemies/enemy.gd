@@ -34,6 +34,7 @@ func _on_timer_timeout():
 
 func _on_player_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage * get_type_multiplier(type)
+	$VBoxContainer/HealthBar.update_health(current_health)
 	$SpecialEffects.do_action(type)
 	emit_signal("update_health", current_health)
 
