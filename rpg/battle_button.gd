@@ -29,6 +29,7 @@ var blocked = false
 signal begin_battle(from: BattleButton)
 
 func _ready():
+#	$TextureRect.rotation_degrees = randi() % 15 - 9
 	choose_texture()
 
 

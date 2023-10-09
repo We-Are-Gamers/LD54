@@ -7,7 +7,7 @@ var path_taken = []
 # TODO: Draw the opaque background here instead of DarkerBackgroun in the node
 # tree on the left.
 func _draw_path(from, to, color):
-	draw_dashed_line(from, to, color, 5.0, 20, false)
+	draw_line(from, to, color, 5.0)
 
 
 func _get_button_pos(node):
@@ -20,7 +20,7 @@ func _draw_node_connections(node):
 	var node_pos = _get_button_pos(node.button)
 	var path_index = path_taken.find(node.button)
 	for connection in node.connections:
-		var color = Color.SLATE_GRAY
+		var color = Color.RED
 		if(path_index > -1 && path_index + 1 < path_taken.size() && path_taken[path_index + 1] == connection):
 			color = Color.BLACK
 		var next_pos = _get_button_pos(connection)

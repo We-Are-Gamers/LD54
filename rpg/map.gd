@@ -42,14 +42,17 @@ func _ready():
 	for i in range(max_level, 0, -1):
 		var h_box = HBoxContainer.new()
 		%VBoxContainer.add_child(h_box)
-		for j in range(randi() % max_room_width + 1):
+		var row_len = randi() % max_room_width + 1
+		for j in range(row_len):
 			var battle_button = PackedBattleButton.instantiate()
 			battle_button.battle_type = randi() % 3
 			battle_button.begin_battle.connect(_on_button_pressed)
 			map[i-1].push_back({"button": battle_button, "connections": []})
 			h_box.add_child(battle_button)
-			if j < 2:
-				var separation = randi() % 150 + 25
+			
+			battle_button.rotation_degrees = 90
+			if row_len > 1:
+				var separation = 60
 				var space_node = Control.new()
 				space_node.custom_minimum_size = Vector2(separation, 0)
 				h_box.add_child(space_node)
