@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bon4n6x2rayul"]
+[gd_scene load_steps=5 format=3 uid="uid://bon4n6x2rayul"]
 
 [ext_resource type="Script" path="res://bank.gd" id="1_httop"]
 [ext_resource type="FontFile" uid="uid://c4k17wq62j7bc" path="res://resources/handwrite_font.ttf" id="2_7v5mr"]
+[ext_resource type="AudioStream" uid="uid://3cre4bkb7lfq" path="res://resources/audio/lofi-study-112191.mp3" id="3_ma6p6"]
 
 [sub_resource type="Theme" id="Theme_6hpcw"]
 default_font_size = 50
@@ -54,5 +55,10 @@ text = "1000"
 fit_content = true
 
 [node name="IncomeTimer" type="Timer" parent="."]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ma6p6")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="timeout" from="IncomeTimer" to="." method="_on_income_timer_timeout"]
