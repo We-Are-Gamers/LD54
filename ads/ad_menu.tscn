@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=37 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://cvqmtb0jek6kd" path="res://resources/ads/industry_sprites1.png" id="18_c2mfc"]
 [ext_resource type="Texture2D" uid="uid://st8poy1kbnh8" path="res://resources/ads/industry.png" id="19_1tfg5"]
 [ext_resource type="Texture2D" uid="uid://bbuu0hkagfnx7" path="res://resources/ads/yoga.png" id="20_lvnyv"]
+[ext_resource type="Texture2D" uid="uid://cvmwsct0l3nkf" path="res://resources/ads/car_insurance.png" id="21_5dx54"]
+[ext_resource type="Texture2D" uid="uid://dcfb16okknq6j" path="res://resources/ads/susquehanna_hats.png" id="22_d65lg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul2t"]
 bg_color = Color(0.996078, 0.945098, 0.862745, 1)
@@ -335,19 +337,31 @@ income_per_tick = true
 ad_texture = ExtResource("12_7vin2")
 ad_animation = SubResource("SpriteFrames_2jnwm")
 
-[node name="Industry" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+[node name="Insurance" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 4
-income_amount = 15
-income_per_tick = true
-ad_texture = ExtResource("18_c2mfc")
-ad_animation = SubResource("SpriteFrames_n6piv")
+income_amount = 500
+ad_texture = ExtResource("21_5dx54")
 
 [node name="Yoga" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
-unlock_level = 4
+unlock_level = 5
 income_amount = 400
 ad_texture = ExtResource("20_lvnyv")
+
+[node name="Industry" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+unlock_level = 5
+income_amount = 100
+ad_texture = ExtResource("18_c2mfc")
+ad_animation = SubResource("SpriteFrames_n6piv")
+
+[node name="SusquehannaHats" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+unlock_level = 6
+income_amount = 20
+income_per_tick = true
+ad_texture = ExtResource("22_d65lg")
 
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_mouse_exited"]
@@ -374,9 +388,15 @@ ad_texture = ExtResource("20_lvnyv")
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_preview_ad"]
-[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_pressed"]
-[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Insurance" to="." method="_on_button_preview_ad"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Yoga" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/SusquehannaHats" to="." method="_on_button_preview_ad"]
