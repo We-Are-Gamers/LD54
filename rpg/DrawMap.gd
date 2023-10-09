@@ -4,7 +4,8 @@ extends VBoxContainer
 var paths = []
 var path_taken = []
 
-
+# TODO: Draw the opaque background here instead of DarkerBackgroun in the node
+# tree on the left.
 func _draw_path(from, to, color):
 	draw_dashed_line(from, to, color, 5.0, 20, false)
 

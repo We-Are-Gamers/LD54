@@ -50,6 +50,7 @@ offset_bottom = 679.0
 script = ExtResource("4_flcgv")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="ActionMenu"]
+layout_mode = 0
 offset_left = 350.0
 offset_top = -666.0
 offset_right = 605.0
