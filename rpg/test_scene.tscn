@@ -23,6 +23,7 @@ unique_name_in_owner = true
 
 [node name="LevelUp" parent="CanvasLayer" instance=ExtResource("4_ba7om")]
 visible = false
+z_index = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_right = 0.0
