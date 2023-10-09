@@ -23,6 +23,7 @@ var paper_texture_selected = build_image_texture(PaperIconSelected)
 var my_material = enabled_material
 var selected = false
 
+var blocked = false
 
 @export var battle_type: BattleType
 signal begin_battle(from: BattleButton)
@@ -53,6 +54,12 @@ func do_enable():
 	disabled = false
 	material = enabled_material
 	my_material = enabled_material
+	
+func do_block():
+	blocked = true
+
+func do_unblock():
+	blocked = false
 
 func build_image_texture(icon):
 	var image = icon.get_image()
@@ -61,11 +68,13 @@ func build_image_texture(icon):
 
 
 func _on_pressed():
-	emit_signal("begin_battle", self)
+	if not blocked:
+		emit_signal("begin_battle", self)
 
 func _on_mouse_entered():
-	if not disabled:
+	if not disabled and not blocked:
 		material = hover_material
 
 func _on_mouse_exited():
-	material = my_material
+	if not blocked:
+		material = my_material

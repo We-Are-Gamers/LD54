@@ -20,6 +20,7 @@ var type_button_label = {}
 signal update_health(current_health)
 signal player_attack(damage, type)
 signal game_over(win: bool)
+signal level_up_complete()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -110,4 +111,4 @@ func _on_level_up(type: ActionType.ActionTypeEnum):
 	
 	type_power[ActionType.ActionTypeEnum.HEAL] = type_power[ActionType.ActionTypeEnum.HEAL] + power_growth
 	update_button_label(ActionType.ActionTypeEnum.HEAL, type_power[ActionType.ActionTypeEnum.HEAL])
-	
+	level_up_complete.emit()
