@@ -137,6 +137,7 @@ theme_override_font_sizes/font_size = 25
 text = "Level"
 
 [node name="HealContainer" type="HBoxContainer" parent="Control/VBoxContainer/ButtonContainer"]
+visible = false
 layout_mode = 2
 
 [node name="HealButton" type="TextureButton" parent="Control/VBoxContainer/ButtonContainer/HealContainer"]

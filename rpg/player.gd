@@ -120,3 +120,6 @@ func _on_level_up(type: ActionType.ActionTypeEnum):
 	type_power[type] = type_power[type] + power_growth
 	update_button(type, type_power[type])
 	
+	type_power[ActionType.ActionTypeEnum.HEAL] = type_power[ActionType.ActionTypeEnum.HEAL] + power_growth
+	update_button(ActionType.ActionTypeEnum.HEAL, type_power[ActionType.ActionTypeEnum.HEAL])
+	
