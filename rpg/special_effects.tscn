@@ -63,5 +63,5 @@ explosiveness = 0.7
 emitting = false
 process_material = ExtResource("12_h35wu")
 texture = ExtResource("13_y23y3")
-lifetime = 3.0
+lifetime = 1.5
 one_shot = true
