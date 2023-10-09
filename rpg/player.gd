@@ -87,7 +87,6 @@ func _on_enemy_attack(damage, type: ActionType.ActionTypeEnum):
 	$SpecialEffects.do_action(type)
 	if current_health <= 0:
 		current_health = 0
-		emit_signal("game_over", false)
 	$VBoxContainer/HealthBar.update_health(current_health)
 	
 
