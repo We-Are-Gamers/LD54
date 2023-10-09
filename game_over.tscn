@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgb5qlkjaak52"]
+[gd_scene load_steps=15 format=3 uid="uid://cgb5qlkjaak52"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_2g08d"]
+[ext_resource type="Texture2D" uid="uid://d1w0hhcwvkb14" path="res://resources/paper.jpg" id="2_8kg32"]
 [ext_resource type="StyleBox" uid="uid://bk44nqxwmdg7k" path="res://resources/button_disabled_theme.tres" id="2_32fer"]
 [ext_resource type="StyleBox" uid="uid://cb6koufopc47w" path="res://resources/button_hover_theme.tres" id="2_t5ygc"]
 [ext_resource type="StyleBox" uid="uid://dcqjcu3jyfmrm" path="res://resources/button_normal_theme.tres" id="3_fg3ng"]
@@ -34,6 +35,18 @@ _data = {
 "modulate": SubResource("Animation_hqerl")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umo7c"]
+size = Vector2(2320, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euova"]
+size = Vector2(2320, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rso8"]
+size = Vector2(200, 1480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83808"]
+size = Vector2(200, 1480)
+
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -43,14 +56,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2g08d")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_8kg32")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -67,29 +80,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="WinContainer" type="BoxContainer" parent="VBoxContainer/BoxContainer"]
-layout_mode = 2
-
-[node name="Win" type="Label" parent="VBoxContainer/BoxContainer/WinContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 50
-text = "You Win !!"
-
-[node name="LoseContainer" type="BoxContainer" parent="VBoxContainer/BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Lose" type="Label" parent="VBoxContainer/BoxContainer/LoseContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 50
-text = "You Lose :(("
-
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -105,6 +95,11 @@ size_flags_vertical = 4
 theme = SubResource("Theme_x60ol")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
+
+[node name="AdHolder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Fade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -124,6 +119,38 @@ menu_scene = "res://main_menu.tscn"
 libraries = {
 "": SubResource("AnimationLibrary_r5n53")
 }
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, -100)
+shape = SubResource("RectangleShape2D_umo7c")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(960, 1181)
+shape = SubResource("RectangleShape2D_euova")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-100, 540)
+shape = SubResource("RectangleShape2D_1rso8")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(2021, 540)
+shape = SubResource("RectangleShape2D_83808")
 
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="Fade" method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="Fade" method="_on_menu_button_pressed"]

@@ -8,7 +8,7 @@ signal balance_updated(balance)
 signal unlock_ads(level: int)
 
 var income_per_tick = 0
-var win: bool = false
+var win: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
