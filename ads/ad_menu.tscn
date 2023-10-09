@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bc4ksfds1f7f6"]
+[gd_scene load_steps=34 format=3 uid="uid://bc4ksfds1f7f6"]
 
 [ext_resource type="Script" path="res://ads/ad_menu.gd" id="1_qew6a"]
 [ext_resource type="PackedScene" uid="uid://dmgjiunetoneg" path="res://ads/ad_preview_box.tscn" id="2_yq0ia"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dgg2mp4nhc5s6" path="res://resources/ads/pi_for_i.png" id="13_d6ksr"]
 [ext_resource type="Texture2D" uid="uid://rn4nrdk23h38" path="res://resources/ads/salmon_3.png" id="14_tfa2s"]
 [ext_resource type="Texture2D" uid="uid://psd0okelil17" path="res://resources/ads/salmon_4.png" id="15_ag5gy"]
+[ext_resource type="Texture2D" uid="uid://cvqmtb0jek6kd" path="res://resources/ads/industry_sprites1.png" id="18_c2mfc"]
+[ext_resource type="Texture2D" uid="uid://st8poy1kbnh8" path="res://resources/ads/industry.png" id="19_1tfg5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul2t"]
 bg_color = Color(0.996078, 0.945098, 0.862745, 1)
@@ -68,6 +70,84 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjdky"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w36nn"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2mm"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg11r"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkpia"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3u8c"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6scix"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nnl2"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7xjh"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw8ay"]
+atlas = ExtResource("19_1tfg5")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6piv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjdky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w36nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu2mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg11r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkpia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3u8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6scix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nnl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7xjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw8ay")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
 }]
 
 [node name="AdMenu" type="Control"]
@@ -254,6 +334,14 @@ income_per_tick = true
 ad_texture = ExtResource("12_7vin2")
 ad_animation = SubResource("SpriteFrames_2jnwm")
 
+[node name="Industry" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
+layout_mode = 2
+unlock_level = 4
+income_amount = 15
+income_per_tick = true
+ad_texture = ExtResource("18_c2mfc")
+ad_animation = SubResource("SpriteFrames_n6piv")
+
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/GraphicDesign" to="." method="_on_button_pressed"]
@@ -279,3 +367,6 @@ ad_animation = SubResource("SpriteFrames_2jnwm")
 [connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_pressed"]
 [connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Salmon" to="." method="_on_button_preview_ad"]
+[connection signal="mouse_exited" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_pressed"]
+[connection signal="preview_ad" from="MenuPanel/MarginContainer/VBoxContainer/Industry" to="." method="_on_button_preview_ad"]
