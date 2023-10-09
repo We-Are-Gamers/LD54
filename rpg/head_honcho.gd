@@ -61,3 +61,7 @@ func _do_combat():
 
 func _on_game_over(win):
 	emit_signal("game_over", win)
+
+
+func _on_level_up_complete():
+	%Map.unblock_buttons()

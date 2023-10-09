@@ -125,6 +125,17 @@ func increment_level():
 		emit_signal("game_over", true)
 	bank.level_up(current_level)
 	_update_active_buttons()
+	block_buttons()
+	
+func block_buttons():
+	for level in range(max_level):
+		for node in map[level]:
+			node.button.do_block()
+	
+func unblock_buttons():
+	for level in range(max_level):
+		for node in map[level]:
+			node.button.do_unblock()
 
 
 func _on_button_pressed(from_button: BattleButton):

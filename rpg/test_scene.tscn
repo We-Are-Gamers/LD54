@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://rpg/head_honcho.gd" id="1_ftnay"]
 [ext_resource type="PackedScene" uid="uid://ddmaq0s288vp4" path="res://rpg/player.tscn" id="2_pw7o6"]
-[ext_resource type="PackedScene" path="res://rpg/level_up.tscn" id="4_ba7om"]
-[ext_resource type="PackedScene" path="res://rpg/timer.tscn" id="5_3lqwx"]
+[ext_resource type="PackedScene" uid="uid://b2i3gfx4exq0" path="res://rpg/level_up.tscn" id="4_ba7om"]
+[ext_resource type="PackedScene" uid="uid://cxsx8h3lehaf6" path="res://rpg/timer.tscn" id="5_3lqwx"]
 [ext_resource type="PackedScene" uid="uid://c6xi4eav84661" path="res://rpg/map.tscn" id="5_g3je1"]
 
 [node name="test_scene" type="Node2D"]
@@ -38,6 +38,7 @@ visible = false
 position = Vector2(896, 225)
 
 [connection signal="game_over" from="Player" to="." method="_on_game_over"]
+[connection signal="level_up_complete" from="Player" to="." method="_on_level_up_complete"]
 [connection signal="begin_battle" from="CanvasLayer/Map" to="." method="_on_map_begin_battle"]
 [connection signal="game_over" from="CanvasLayer/Map" to="." method="_on_game_over"]
 [connection signal="level_up_button" from="CanvasLayer/LevelUp" to="Player" method="_on_level_up"]
