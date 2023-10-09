@@ -18,7 +18,7 @@ func _ready():
 	menu_ad.ad_texture = ImageTexture.create_from_image(AdTexture.get_image())
 	var ad_window = AdWindow.instantiate()
 	ad_window.bank = bank
-	ad_window.position = %Play.position + %Play.texture_normal.get_size() / 2
+	ad_window.position = %Play.get_global_position() + %Play.texture_normal.get_size() / 2
 	ad_window.set_ad(menu_ad)
 	$"../AdHolder".add_child.call_deferred(ad_window)
 	
@@ -36,3 +36,7 @@ func scene_transition(next_scene):
 
 func _on_play_button_pressed():
 	scene_transition(next_scene_path)
+
+
+func _on_credits_pressed():
+	$"../Credits".visible = true

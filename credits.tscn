@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8on6murbldmb"]
+
+[ext_resource type="Texture2D" uid="uid://moqb2obw7kep" path="res://resources/button/close_credits.png" id="1_0t6js"]
+[ext_resource type="Script" path="res://credits.gd" id="1_y3wb6"]
+[ext_resource type="Texture2D" uid="uid://cvrducb0i3fn0" path="res://resources/button/close_credits_highlighted.png" id="2_tq86i"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y3wb6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -529.0
+offset_right = 212.5
+offset_bottom = 529.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[center][b]Programming, Art, and Game Design[/b]
+William Burton
+Jacob Speicher
+Keegan Taylor
+Ray Yang
+
+[b]Sound Design[/b]
+William Burton
+Keegan Taylor
+
+[b]Map Icons[/b]
+[u]Scissors[/u]
+Freepik
+https://www.flaticon.com/free-icon/scissors_2542041
+[u]Paper[/u]
+Freepik
+https://www.flaticon.com/free-icon/paper_737906
+[u]Coal[/u]
+Freepik
+https://www.flaticon.com/free-icon/coal_9921011
+
+[b]Additional Ad Art[/b]
+[u]Truck[/u]
+Caleb White
+https://unsplash.com/photos/XGJBSkoqX_I
+
+[b]Additional Art[/b]
+[u]Paper[/u]
+Marjan Blan
+https://unsplash.com/photos/_kUxT8WkoeY
+[u]Corkboard[/u]
+Josephine Bredehoft
+https://unsplash.com/photos/KsAo8ouBn8A
+[u]Sticky Note[/u]
+https://pngimg.com/image/18941
+
+[b]Font[/b]
+[u]blzee[/u]
+Blaise Kal
+https://www.1001fonts.com/blzee-font.html
+
+[b]Music[/b]
+[u]Lofi Study[/u]
+FASSounds
+https://pixabay.com/users/fassounds-3433550/
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture_normal = ExtResource("1_0t6js")
+texture_hover = ExtResource("2_tq86i")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_close_button_pressed"]

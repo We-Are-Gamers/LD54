@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://jku1cwr83dwm"]
+[gd_scene load_steps=11 format=3 uid="uid://jku1cwr83dwm"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_2xv1i"]
 [ext_resource type="Texture2D" uid="uid://dsnnloby8fk60" path="res://resources/title.png" id="1_77cdj"]
 [ext_resource type="Texture2D" uid="uid://deeexhb1i68n3" path="res://resources/button/play.png" id="1_m5xpw"]
 [ext_resource type="Texture2D" uid="uid://denj332q3n6d0" path="res://resources/button/play_highlight.png" id="2_k0x7c"]
 [ext_resource type="Texture2D" uid="uid://d1w0hhcwvkb14" path="res://resources/paper.jpg" id="2_w1mts"]
+[ext_resource type="Texture2D" uid="uid://be4slxbixgamw" path="res://resources/button/credits.png" id="4_cri81"]
+[ext_resource type="Texture2D" uid="uid://cagyt62smqhvs" path="res://resources/button/credits_highlight.png" id="5_uwehe"]
+[ext_resource type="PackedScene" uid="uid://c8on6murbldmb" path="res://credits.tscn" id="8_5txu7"]
 
 [sub_resource type="Animation" id="Animation_begyb"]
 resource_name = "menu_fade"
@@ -48,23 +51,33 @@ grow_horizontal = 2
 [node name="Title" type="Sprite2D" parent="Control"]
 texture = ExtResource("1_77cdj")
 
-[node name="Play" type="TextureButton" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -64.0
+offset_top = 100.0
 offset_right = 128.0
-offset_bottom = 64.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 120
+
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 texture_normal = ExtResource("1_m5xpw")
 texture_hover = ExtResource("2_k0x7c")
+
+[node name="Credits" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("4_cri81")
+texture_hover = ExtResource("5_uwehe")
 
 [node name="AdHolder" type="Control" parent="."]
 anchors_preset = 0
@@ -92,3 +105,9 @@ z_index = -999
 position = Vector2(980, 549)
 rotation = -1.5708
 texture = ExtResource("2_w1mts")
+
+[node name="Credits" parent="." instance=ExtResource("8_5txu7")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/Credits" to="MainMenu" method="_on_credits_pressed"]
