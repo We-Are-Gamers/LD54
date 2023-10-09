@@ -9,6 +9,9 @@ var AdLose = preload("res://resources/ads/lose_ad.png")
 var menu_ad: AdDescription = AdDescription.new()
 
 func _ready():
+	bank.stop_income_tick()
+	bank.reset()
+	
 	if bank.win:
 		display_game_win()
 	else:
