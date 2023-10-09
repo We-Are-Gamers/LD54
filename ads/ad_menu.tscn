@@ -198,46 +198,46 @@ text = "Click and drag to add an ad"
 
 [node name="GraphicDesign" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
-income_amount = 100
+income_amount = 400
 ad_texture = ExtResource("4_onase")
 
 [node name="BuyNow" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
-income_amount = 5
+income_amount = 3
 income_per_tick = true
 ad_texture = ExtResource("7_m847v")
 
 [node name="Tbblobnoern" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 1
-income_amount = 10
+income_amount = 5
 income_per_tick = true
 ad_texture = ExtResource("11_x8q4n")
 
 [node name="Amogus" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 1
-income_amount = 150
+income_amount = 600
 ad_texture = ExtResource("5_q3upx")
 
 [node name="TruckinThursdays" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 2
-income_amount = 50
+income_amount = 25
 income_per_tick = true
 ad_texture = ExtResource("6_idejw")
 
 [node name="BuyBuyBuy" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 2
-income_amount = 50
+income_amount = 100
 ad_texture = ExtResource("8_kpd33")
 ad_animation = SubResource("SpriteFrames_4ryx4")
 
 [node name="Medicine" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 3
-income_amount = 200
+income_amount = 800
 ad_texture = ExtResource("12_xj1ok")
 
 [node name="PiForI" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
@@ -249,7 +249,7 @@ ad_texture = ExtResource("13_d6ksr")
 [node name="Salmon" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
 unlock_level = 4
-income_amount = 15
+income_amount = 10
 income_per_tick = true
 ad_texture = ExtResource("12_7vin2")
 ad_animation = SubResource("SpriteFrames_2jnwm")

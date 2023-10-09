@@ -30,7 +30,7 @@ func _process(delta):
 	pass
 
 func _on_timer_timeout():
-	emit_signal("enemy_attack", attack_power, type)
+	emit_signal("enemy_attack", attack_power + (level / 3), type)
 
 func _on_player_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage * get_type_multiplier(type)
@@ -46,7 +46,5 @@ func get_type_multiplier(type: ActionType.ActionTypeEnum):
 	return 1
 
 func update_stats(level):
-	var actual_level = level + 1
-	attack_power = attack_power * actual_level
-	max_health *= actual_level
+	max_health *= level/2 + 1
 	$VBoxContainer/HealthBar.update_max_health(max_health)
