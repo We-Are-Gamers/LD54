@@ -248,7 +248,9 @@ ad_texture = ExtResource("13_d6ksr")
 
 [node name="Salmon" parent="MenuPanel/MarginContainer/VBoxContainer" instance=ExtResource("3_tlw0m")]
 layout_mode = 2
-income_amount = 200
+unlock_level = 4
+income_amount = 15
+income_per_tick = true
 ad_texture = ExtResource("12_7vin2")
 ad_animation = SubResource("SpriteFrames_2jnwm")
 
