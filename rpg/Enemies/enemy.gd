@@ -23,14 +23,20 @@ func _ready():
 	current_health = max_health
 	%EnemyIcon.texture = enemy_icon
 	emit_signal("update_health", current_health)
-	$VBoxContainer/Type.text = ActionType.ActionTypeEnum.keys()[type].to_upper()
+	$VBoxContainer/Type.text = "%s (%d damage)" % [
+		ActionType.ActionTypeEnum.keys()[type].to_upper(),
+		_damage()
+	]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+func _damage() -> int:
+	return attack_power + (level / 3)
+
 func _on_timer_timeout():
-	emit_signal("enemy_attack", attack_power + (level / 3), type)
+	emit_signal("enemy_attack", _damage(), type)
 
 func _on_player_attack(damage, type: ActionType.ActionTypeEnum):
 	current_health -= damage * get_type_multiplier(type)
